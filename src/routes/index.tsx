@@ -11,8 +11,8 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import heroPoster from "@/assets/al-madaan-poster.png.asset.json";
-import servicePoster from "@/assets/taxi-service-poster.png.asset.json";
+const heroPosterUrl = "/images/al-madaan-poster.png";
+const servicePosterUrl = "/images/taxi-service-poster.png";
 import { GoogleTranslateWidget } from "@/components/google-translate";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteLayout } from "@/components/site-layout";

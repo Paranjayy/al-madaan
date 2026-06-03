@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import placesAsset from "@/assets/kashmir-tourist-places.png.asset.json";
+const placesImageUrl = "/images/kashmir-tourist-places.png";
 import { SiteLayout } from "@/components/site-layout";
 import { destinationCards } from "@/lib/site-content";
 
