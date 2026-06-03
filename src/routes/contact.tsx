@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, MessageCircle, Phone, UserRound } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
+import { TripPlanner } from "@/components/trip-planner";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
@@ -104,6 +105,10 @@ function ContactPage() {
               </a>
             </div>
           </aside>
+        </div>
+
+        <div className="mt-12">
+          <TripPlanner />
         </div>
       </section>
     </SiteLayout>
