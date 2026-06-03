@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import type { LanguageCode } from "@/lib/site-content";
@@ -50,6 +51,13 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                 className="nav-link"
               >
                 Services
+              </Link>
+              <Link
+                to="/packages"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Packages
               </Link>
               <Link
                 to="/destinations"
@@ -112,6 +120,7 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
 
       <main>{children}</main>
       <SiteFooter t={t} />
+      <FloatingWhatsApp />
     </div>
   );
 }
