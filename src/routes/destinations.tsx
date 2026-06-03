@@ -40,7 +40,9 @@ function DestinationsPage() {
               A strong starting guide to the places travellers ask for most.
             </h1>
             <p className="text-lg leading-8 text-muted-foreground">
-              The destination board shared by the business already gives a useful snapshot of common tourist demand. This page turns that into a cleaner, mobile-friendly overview for guests planning a Kashmir trip.
+              The destination board shared by the business already gives a useful snapshot of common
+              tourist demand. This page turns that into a cleaner, mobile-friendly overview for
+              guests planning a Kashmir trip.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               {destinationCards.map((card) => (
