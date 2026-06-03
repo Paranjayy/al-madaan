@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const placesImageUrl = "/images/kashmir-tourist-places.png";
 import { SiteLayout } from "@/components/site-layout";
 import { destinationCards } from "@/lib/site-content";
+
+const placesImageUrl = "/images/kashmir-tourist-places.png";
 
 export const Route = createFileRoute("/destinations")({
   head: () => ({
@@ -20,8 +21,8 @@ export const Route = createFileRoute("/destinations")({
           "Explore Srinagar, Gulmarg, Sonmarg, Pahalgam and more with friendly local taxi support for sightseeing and outstation travel.",
       },
       { property: "og:url", content: "/destinations" },
-      { property: "og:image", content: placesAsset.url },
-      { name: "twitter:image", content: placesAsset.url },
+      { property: "og:image", content: placesImageUrl },
+      { name: "twitter:image", content: placesImageUrl },
     ],
     links: [{ rel: "canonical", href: "/destinations" }],
   }),
@@ -53,7 +54,7 @@ function DestinationsPage() {
 
           <figure className="overflow-hidden rounded-[var(--radius-2xl)] border border-border/70 bg-panel shadow-soft">
             <img
-              src={placesAsset.url}
+              src={placesImageUrl}
               alt="Tourist places across Jammu and Kashmir including Srinagar, Gulmarg, Pahalgam, Sonmarg and Jammu sightseeing locations"
               className="h-full w-full object-cover"
               loading="lazy"

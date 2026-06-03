@@ -11,12 +11,13 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-const heroPosterUrl = "/images/al-madaan-poster.png";
-const servicePosterUrl = "/images/taxi-service-poster.png";
 import { GoogleTranslateWidget } from "@/components/google-translate";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+
+const heroPosterUrl = "/images/al-madaan-poster.png";
+const servicePosterUrl = "/images/taxi-service-poster.png";
 import {
   destinationCards,
   languages,
@@ -45,9 +46,9 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
-      { property: "og:image", content: heroPoster.url },
+      { property: "og:image", content: heroPosterUrl },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: heroPoster.url },
+      { name: "twitter:image", content: heroPosterUrl },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
@@ -57,7 +58,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Al Madaan Ventures",
-          image: heroPoster.url,
+          image: heroPosterUrl,
           telephone: "0917006109912",
           areaServed: "Kashmir",
           address: {
@@ -145,7 +146,7 @@ function IndexPage() {
           <div className="space-y-5">
             <figure className="surface-card overflow-hidden">
               <img
-                src={heroPoster.url}
+                src={heroPosterUrl}
                 alt="Al Madaan Ventures poster showing local Kashmir drivers, two taxis, and travel-friendly branding"
                 className="h-full w-full object-cover"
               />
@@ -229,7 +230,7 @@ function IndexPage() {
 
           <figure className="surface-card overflow-hidden">
             <img
-              src={servicePoster.url}
+              src={servicePosterUrl}
               alt="Taxi service poster showing comfortable two-person Kashmir taxi ride with contact details"
               className="h-full w-full object-cover"
               loading="lazy"
