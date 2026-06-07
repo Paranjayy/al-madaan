@@ -225,9 +225,9 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                     href="https://www.instagram.com/al_madaan"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors"
+                    className="inline-flex items-center gap-1.5 text-primary hover:underline transition-colors font-medium"
                   >
-                    <Instagram className="h-3.5 w-3.5 text-primary" /> @al_madaan
+                    <Instagram className="h-3.5 w-3.5" /> @al_madaan
                   </a>
                 </div>
                 <div className="flex items-center justify-between gap-2">
@@ -249,9 +249,9 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                 href="https://www.instagram.com/al_madaan"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-2 text-primary hover:underline transition-colors font-medium"
               >
-                <Instagram className="h-4 w-4 text-primary" /> @al_madaan
+                <Instagram className="h-4 w-4" /> @al_madaan
               </a>
               <span>2 taxis • local & outstation</span>
             </div>

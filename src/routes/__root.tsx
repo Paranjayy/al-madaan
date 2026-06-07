@@ -127,6 +127,7 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 import { Toaster } from "../components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -134,6 +135,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <Analytics />
       <Toaster position="top-right" closeButton richColors />
     </QueryClientProvider>
   );
