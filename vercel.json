@@ -1,5 +1,6 @@
 {
   "version": 2,
   "framework": null,
-  "buildCommand": "NITRO_PRESET=vercel vite build"
+  "installCommand": "bun install",
+  "buildCommand": "bun run build && rm -rf .vercel && mkdir -p .vercel/output/functions/__server.func .vercel/output/static && cp -r dist/server/* .vercel/output/functions/__server.func/ && cp -r dist/client/* .vercel/output/static/ && cp dist/config.json .vercel/output/config.json"
 }
