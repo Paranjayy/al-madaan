@@ -391,6 +391,25 @@ const packageDb: Record<string, PackageDetails> = {
 };
 
 export const Route = createFileRoute("/packages/$slug")({
+  head: ({ params }) => {
+    const pkg = packageDb[params.slug];
+    const title = pkg
+      ? `${pkg.name} — Kashmir Itinerary | Al Madaan`
+      : "Kashmir Package | Al Madaan";
+    const rawDesc = pkg?.description || "Kashmir tour itinerary by Al Madaan Ventures.";
+    const description = rawDesc.length > 158 ? rawDesc.slice(0, 155) + "…" : rawDesc;
+    const url = `https://al-madaan.lovable.app/packages/${params.slug}`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+    };
+  },
   component: PackageDetailPage,
 });
 

@@ -22,9 +22,9 @@ export const Route = createFileRoute("/services")({
         content:
           "Airport transfers, local sightseeing, hotel pickup and outstation trips with friendly local drivers in Kashmir.",
       },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: "https://al-madaan.lovable.app/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/services" }],
   }),
   component: ServicesPage,
 });

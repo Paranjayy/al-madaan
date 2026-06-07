@@ -20,9 +20,9 @@ export const Route = createFileRoute("/contact")({
         content:
           "Call or message Al Madaan Ventures for Kashmir taxi bookings, local sightseeing, airport transfers, and tour assistance.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://al-madaan.lovable.app/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/contact" }],
   }),
   component: ContactPage,
 });
