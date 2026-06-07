@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Clock, MapPin, MessageCircle, Navigation, ExternalLink, Shield } from "lucide-react";
+import { Clock, MapPin, MessageCircle, Navigation, ExternalLink } from "lucide-react";
+import type { Map as LeafletMap } from "leaflet";
 import { Button } from "./ui/button";
 
 interface LocationData {
@@ -119,8 +120,7 @@ export function KashmirMap() {
   const [selectedLoc, setSelectedLoc] = useState<string>("srinagar");
   const [isClient, setIsClient] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const leafletMapInstance = useRef<any>(null);
+  const leafletMapInstance = useRef<LeafletMap | null>(null);
 
   // Set isClient to true when component mounts on browser
   useEffect(() => {
@@ -221,7 +221,7 @@ export function KashmirMap() {
     return `https://wa.me/917006109912?text=${encodeURIComponent(message)}`;
   };
 
-  const getGmapLink = (lat: number, lng: number, title: string) => {
+  const getGmapLink = (lat: number, lng: number) => {
     return `https://www.google.com/maps/dir/?api=1&origin=Srinagar&destination=${lat},${lng}`;
   };
 
@@ -341,7 +341,7 @@ export function KashmirMap() {
               </a>
 
               <a
-                href={getGmapLink(activeData.lat, activeData.lng, activeData.title)}
+                href={getGmapLink(activeData.lat, activeData.lng)}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full inline-block"

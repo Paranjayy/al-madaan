@@ -4,7 +4,6 @@ interface SiteFooterProps {
   t: {
     footerTagline: string;
     footerNote: string;
-    destinations: string[];
   };
 }
 
@@ -53,17 +52,27 @@ export function SiteFooter({ t }: SiteFooterProps) {
 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-contrast/80">
-              Routes
+              Quick Links
             </h3>
-            <div className="flex flex-wrap gap-2">
-              {t.destinations.map((destination) => (
-                <span
-                  key={destination}
-                  className="rounded-full border border-brand-contrast/15 bg-footer-elevated px-3 py-1 text-sm text-footer-foreground"
-                >
-                  {destination}
-                </span>
-              ))}
+            <div className="flex flex-col gap-2 text-sm text-footer-muted">
+              <a href="/services" className="hover:text-footer-foreground transition-colors">
+                Services & Fare Table
+              </a>
+              <a href="/packages" className="hover:text-footer-foreground transition-colors">
+                Tour Packages
+              </a>
+              <a href="/destinations" className="hover:text-footer-foreground transition-colors">
+                Destinations
+              </a>
+              <a href="/team" className="hover:text-footer-foreground transition-colors">
+                Meet the Team
+              </a>
+              <a href="/guide" className="hover:text-footer-foreground transition-colors">
+                Kashmir Travel Guide
+              </a>
+              <a href="/contact" className="hover:text-footer-foreground transition-colors">
+                Contact & Book
+              </a>
             </div>
           </div>
         </div>

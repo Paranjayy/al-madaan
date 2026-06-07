@@ -38,7 +38,7 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
               </Link>
             </div>
 
-            <nav className="grid grid-cols-2 gap-2 text-sm sm:flex sm:flex-wrap sm:items-center">
+            <nav className="grid grid-cols-3 gap-2 text-sm sm:flex sm:flex-wrap sm:items-center">
               <Link
                 to="/"
                 activeProps={{ className: "nav-link nav-link-active" }}
@@ -66,6 +66,20 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                 className="nav-link"
               >
                 Destinations
+              </Link>
+              <Link
+                to="/team"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Team
+              </Link>
+              <Link
+                to="/guide"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Guide
               </Link>
               <Link
                 to="/contact"

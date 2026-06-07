@@ -9,15 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as GuideRouteImport } from './routes/guide'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -31,6 +38,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuideRoute = GuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DestinationsRoute = DestinationsRouteImport.update({
@@ -63,9 +75,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/guide': typeof GuideRoute
   '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/team': typeof TeamRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
 }
@@ -73,9 +87,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/guide': typeof GuideRoute
   '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/team': typeof TeamRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
 }
@@ -84,9 +100,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/guide': typeof GuideRoute
   '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/team': typeof TeamRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
 }
@@ -96,9 +114,11 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/destinations'
+    | '/guide'
     | '/packages'
     | '/services'
     | '/sitemap.xml'
+    | '/team'
     | '/destinations/$slug'
     | '/packages/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -106,9 +126,11 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/destinations'
+    | '/guide'
     | '/packages'
     | '/services'
     | '/sitemap.xml'
+    | '/team'
     | '/destinations/$slug'
     | '/packages/$slug'
   id:
@@ -116,9 +138,11 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/destinations'
+    | '/guide'
     | '/packages'
     | '/services'
     | '/sitemap.xml'
+    | '/team'
     | '/destinations/$slug'
     | '/packages/$slug'
   fileRoutesById: FileRoutesById
@@ -127,13 +151,22 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
+  GuideRoute: typeof GuideRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TeamRoute: typeof TeamRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -153,6 +186,13 @@ declare module '@tanstack/react-router' {
       path: '/packages'
       fullPath: '/packages'
       preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide': {
+      id: '/guide'
+      path: '/guide'
+      fullPath: '/guide'
+      preLoaderRoute: typeof GuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/destinations': {
@@ -221,9 +261,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
+  GuideRoute: GuideRoute,
   PackagesRoute: PackagesRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

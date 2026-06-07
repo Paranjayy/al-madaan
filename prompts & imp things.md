@@ -286,3 +286,30 @@ TripAdvisor — Plan smarter trips by budget, weather & vibe
 https://trip-advisor.lovable.app/
 
 # prompt 5
+
+did u add roadmap and upcoming feature plan and everything ig and tour/itineary and things and did u read or understnad all my instructions and things dawg
+
+Preview has not been built yet. Either your project has an error or the preview is currently being built. in lovable issue too
+
+- create roadmap & then start building for more robust features and general overall things ig dawg & add support for dark/light mode with proper fonts and no quirks btw!
+- ig we might not have proper homepage/slugs dawg imo
+- also create new markdown files for me and them hamdani/their it employee
+
+# prompt 6
+
+- claude dawg please audit this cursed proj it has person as pax which is weird and it has cursed ui/ux please improev the things which u could ig man
+- - Add a booking/request form with pickup location, date/time, passengers, and taxi type, and send me an email confirmation after submission.
+- Implement an interactive map showing pickup points, popular routes, and key tourist stops, with a one-tap WhatsApp link from each location.
+- Create driver and taxi profiles with photo gallery, bio, languages spoken, and a testimonials/reviews section for travelers.
+- Add clear fare rules (airport hours, kids pricing, payment methods) plus a downloadable PDF price brochure for tourists and returning drivers.
+- also add rules or must know things for any season or time of year btw for first time goer to kashmir or anythign and everything aspect and things dawg
+- still in vercel issue btw
+- also read previous entire chat and every instructions and things if u need to ig dawg
+
+404: NOT_FOUND
+Code: NOT_FOUND
+ID: bom1::5mxkn-1780818452105-e0d745ce21b9
+
+Read our documentation to learn more about this error.
+
+# prompt 7

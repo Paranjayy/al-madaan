@@ -22,7 +22,7 @@ const packageDb: Record<string, PackageDetails> = {
   "srinagar-express": {
     name: "Srinagar Express",
     days: "1 Day",
-    people: "1-4 pax",
+    people: "1–4 guests",
     description: "Dal Lake, Mughal Gardens, old-city culture, and shrines.",
     longDescription:
       "Ideal for travelers with limited time or as an acclimatization introduction on your first day in the valley. This curated experience brings you the best of Srinagar's heritage, standard sightseeing, and local markets.",
@@ -68,7 +68,7 @@ const packageDb: Record<string, PackageDetails> = {
   "gulmarg-snow-day": {
     name: "Gulmarg Snow Day",
     days: "1 Day",
-    people: "1-4 pax",
+    people: "1–4 guests",
     description: "Full day alpine mountain travel and Gondola ride assistance.",
     longDescription:
       "A gorgeous trip to the meadow of flowers, transforming into India's premier ski hub during winters. We manage the scenic drive and guide you on parking, tickets, and safety.",
@@ -114,7 +114,7 @@ const packageDb: Record<string, PackageDetails> = {
   "pahalgam-valley": {
     name: "Pahalgam Valley",
     days: "1 Day",
-    people: "1-4 pax",
+    people: "1–4 guests",
     description: "Pine forests, Betaab & Aru Valleys, and Lidder river points.",
     longDescription:
       "Pahalgam offers unparalleled landscapes of dense conifer forests and the rushing Lidder river. This day-trip takes you from Srinagar through the saffron fields of Pampore to the heart of shepherd valleys.",
