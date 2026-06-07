@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MapPin, Clock, Calendar, Plus, Check, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Calendar, Plus, Check, MessageCircle, Grid, Map } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { ItineraryBuilder, useItinerary } from "@/components/itinerary-builder";
 import { destinations } from "@/lib/destinations-data";
+import { KashmirMap } from "@/components/kashmir-map";
 
 export const Route = createFileRoute("/destinations")({
   head: () => ({
@@ -146,6 +148,8 @@ function DestinationCard({ dest }: { dest: (typeof destinations)[number] }) {
 }
 
 function DestinationsPage() {
+  const [viewMode, setViewMode] = useState<"grid" | "map">("grid");
+
   return (
     <SiteLayout>
       {/* Hero */}
@@ -166,7 +170,7 @@ function DestinationsPage() {
           {/* Quick stats bar */}
           <div className="mt-8 flex flex-wrap gap-6">
             {[
-              { label: "Destinations covered", value: "7+" },
+              { label: "Destinations covered", value: "10+" },
               { label: "Avg drive from Srinagar", value: "~2 hrs" },
               { label: "Starting cab fare", value: "₹900" },
               { label: "Available taxis", value: "2 cabs" },
@@ -189,19 +193,53 @@ function DestinationsPage() {
               {destinations.length} destinations
             </h2>
           </div>
-          <a href="https://wa.me/917006109912" target="_blank" rel="noreferrer">
-            <Button variant="hero" size="sm">
-              <MessageCircle className="h-4 w-4" />
-              Ask for a custom route
-            </Button>
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="inline-flex rounded-xl border border-border/80 bg-panel p-1">
+              <button
+                type="button"
+                onClick={() => setViewMode("grid")}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition active:scale-95 cursor-pointer ${
+                  viewMode === "grid"
+                    ? "bg-card text-foreground shadow-soft"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Grid className="h-3.5 w-3.5 text-primary" />
+                Grid View
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("map")}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition active:scale-95 cursor-pointer ${
+                  viewMode === "map"
+                    ? "bg-card text-foreground shadow-soft"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Map className="h-3.5 w-3.5 text-primary" />
+                Interactive Map
+              </button>
+            </div>
+            <a href="https://wa.me/917006109912" target="_blank" rel="noreferrer">
+              <Button variant="hero" size="sm">
+                <MessageCircle className="h-4 w-4" />
+                Ask for a custom route
+              </Button>
+            </a>
+          </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {destinations.map((dest) => (
-            <DestinationCard key={dest.slug} dest={dest} />
-          ))}
-        </div>
+        {viewMode === "grid" ? (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 animate-fade-in">
+            {destinations.map((dest) => (
+              <DestinationCard key={dest.slug} dest={dest} />
+            ))}
+          </div>
+        ) : (
+          <div className="animate-fade-in">
+            <KashmirMap />
+          </div>
+        )}
       </section>
 
       {/* Itinerary tips banner */}

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Clock, MapPin, MessageCircle, Navigation, ExternalLink } from "lucide-react";
 import type { Map as LeafletMap } from "leaflet";
 import { Button } from "./ui/button";
+import { destinations } from "@/lib/destinations-data";
 
 interface LocationData {
   title: string;
@@ -15,106 +16,21 @@ interface LocationData {
   details: string;
 }
 
-const kashmirDestinations: Record<string, LocationData> = {
-  srinagar: {
-    title: "Srinagar (Central Hub)",
-    lat: 34.0837,
-    lng: 74.7973,
-    distance: "0 km (Center)",
-    time: "Hub Base",
-    season: "All seasons (Charming Houseboats & Shrines)",
-    attractions: [
-      "Dal Lake Shikara Ride",
-      "Mughal Gardens (Shalimar & Nishat)",
-      "Shankaracharya Temple",
-      "Hazratbal Shrine & Soura",
-    ],
-    price: "₹900 - ₹2,500 (Local Sightseeing)",
-    details: "The heart of Kashmir Valley. Base camp for all sightseeing and transfers.",
-  },
-  gulmarg: {
-    title: "Gulmarg Valley",
-    lat: 34.0484,
-    lng: 74.3805,
-    distance: "52 km from Srinagar",
-    time: "Approx. 2 Hours",
-    season: "December to March (Winter Snow & Skiing)",
-    attractions: [
-      "Gondola Cable Car Ride",
-      "Snow activities & snowboarding",
-      "Scenic Alpine Meadows",
-    ],
-    price: "₹2,500 - ₹2,800",
-    details: "Ski destination famous for the highest operating cable car in the world.",
-  },
-  sonmarg: {
-    title: "Sonmarg Glacier",
-    lat: 34.3012,
-    lng: 75.2987,
-    distance: "80 km from Srinagar",
-    time: "Approx. 2.5 Hours",
-    season: "April to October (Glaciers & Meadows)",
-    attractions: ["Thajiwas Glacier pony ride", "Zero Point snow slopes", "Sindh River viewpoints"],
-    price: "₹2,800 - ₹3,200",
-    details: "The 'Meadow of Gold' offering majestic glacier treks and river trails.",
-  },
-  pahalgam: {
-    title: "Pahalgam Valley",
-    lat: 34.0161,
-    lng: 75.315,
-    distance: "95 km from Srinagar",
-    time: "Approx. 2.5 - 3 Hours",
-    season: "All Year (Stunning rivers & valleys)",
-    attractions: [
-      "Betaab Valley & Aru Valley",
-      "Chandanwari snow bridge",
-      "River Lidder scenic spots",
-    ],
-    price: "₹3,000 - ₹3,500",
-    details: "Lush valley bordered by conifer forests and the rushing Lidder river.",
-  },
-  yusmarg: {
-    title: "Yusmarg Forest Meadow",
-    lat: 33.8242,
-    lng: 74.6675,
-    distance: "47 km from Srinagar",
-    time: "Approx. 1.8 Hours",
-    season: "May to September (Offbeat, peaceful meadows)",
-    attractions: [
-      "Nilnag Lake forest trek",
-      "Doodh Ganga river trail",
-      "Pristine horse-riding routes",
-    ],
-    price: "₹2,400 - ₹2,700",
-    details: "A tranquil offbeat destination surrounded by pine peaks and meadows.",
-  },
-  doodhpathri: {
-    title: "Doodhpathri (Meadow of Milk)",
-    lat: 33.8744,
-    lng: 74.5684,
-    distance: "42 km from Srinagar",
-    time: "Approx. 1.5 Hours",
-    season: "May to October (Cascading fresh streams)",
-    attractions: ["Shaliganga river rapids", "Rolling green hillocks", "Unspoiled nature walks"],
-    price: "₹2,300 - ₹2,600",
-    details: "A pristine landscape of green hills and rushing milky rapids.",
-  },
-  martand: {
-    title: "Martand Sun Temple",
-    lat: 33.6934,
-    lng: 75.2217,
-    distance: "64 km from Srinagar",
-    time: "Approx. 1.8 Hours",
-    season: "All Year (Historical & Archeological heritage)",
-    attractions: [
-      "8th Century Archeological Ruins",
-      "Pandav Lari structures",
-      "Scenic view of Anantnag valley",
-    ],
-    price: "₹2,500 - ₹3,000",
-    details: "Ancient heritage site dedicated to the Sun God, built by King Lalitaditya.",
-  },
-};
+const kashmirDestinations: Record<string, LocationData> = {};
+
+destinations.forEach((d) => {
+  kashmirDestinations[d.slug] = {
+    title: d.slug === "srinagar" ? "Srinagar (Central Hub)" : d.name,
+    lat: d.lat,
+    lng: d.lng,
+    distance: d.distance,
+    time: d.time,
+    season: d.season,
+    attractions: d.highlights,
+    price: d.price,
+    details: d.details,
+  };
+});
 
 export function KashmirMap() {
   const [selectedLoc, setSelectedLoc] = useState<string>("srinagar");
