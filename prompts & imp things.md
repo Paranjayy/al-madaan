@@ -321,4 +321,7 @@ Read our documentation to learn more about this error.
 - and maybe too compplex or db requirement currently we got moving parts so idk how we can or feasible or not but availablity of drivers/cars or bookings later and add more robust things ig
 - still same vercel issue ig
 
+- continue ig dawg also still vercel broken & u can add more itineary or destinations too on pressing destinations some expanded comprehensive things ig
+- continue iterating more robust things ig dawg nad i dont see maps and destinations in it where is it 
+
 # prompt 8

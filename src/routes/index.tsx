@@ -17,6 +17,7 @@ import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { KashmirMap } from "@/components/kashmir-map";
 import { InstagramGallery } from "@/components/instagram-gallery";
+import { destinations as allDestinations } from "@/lib/destinations-data";
 
 const heroPosterUrl = "/images/al-madaan-poster.png";
 const servicePosterUrl = "/images/taxi-service-poster.png";
@@ -238,6 +239,61 @@ function IndexPage() {
               loading="lazy"
             />
           </figure>
+        </div>
+      </section>
+
+      {/* Featured Destinations */}
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+          <div className="space-y-2">
+            <p className="section-kicker">Explore Kashmir</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Most Popular Destinations
+            </h2>
+            <p className="text-base text-muted-foreground max-w-2xl">
+              Stunning valleys, alpine meadows, and historic ruins. Click on any spot to view live
+              taxi rates, distances, and details.
+            </p>
+          </div>
+          <Link to="/destinations">
+            <Button variant="outline" className="border-border">
+              View All &amp; Plan Custom Trip →
+            </Button>
+          </Link>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {allDestinations.slice(0, 4).map((dest) => (
+            <Link
+              key={dest.slug}
+              to="/destinations/$slug"
+              params={{ slug: dest.slug }}
+              className="group relative h-72 overflow-hidden rounded-2xl border border-border/50 bg-card shadow-soft transition-all duration-300 hover:shadow-md hover:-translate-y-1 block"
+            >
+              <img
+                src={dest.image}
+                alt={dest.name}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold backdrop-blur-sm mb-2">
+                  {dest.distance}
+                </span>
+                <h3 className="text-lg font-bold">{dest.name}</h3>
+                <p className="text-xs text-white/85 mt-1 font-medium line-clamp-1">
+                  {dest.tagline}
+                </p>
+                <div className="mt-3 flex items-center justify-between text-xs border-t border-white/20 pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="font-semibold text-accent-strong-foreground">
+                    Cab Fare: {dest.price}
+                  </span>
+                  <span className="underline">View details →</span>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -196,9 +196,9 @@ function DestinationDetailPage() {
           <p className="text-muted-foreground">
             The tourist spot you are looking for does not exist in our database.
           </p>
-          <Link to="/">
+          <Link to="/destinations">
             <Button variant="outline" className="border-border">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Back to Home
+              <ArrowLeft className="h-4 w-4 mr-2" /> Back to Destinations
             </Button>
           </Link>
         </section>
@@ -215,10 +215,10 @@ function DestinationDetailPage() {
       <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-8">
           <Link
-            to="/"
+            to="/destinations"
             className="inline-flex items-center text-sm font-semibold text-primary hover:underline"
           >
-            <ArrowLeft className="h-4 w-4 mr-1.5" /> Back to Home
+            <ArrowLeft className="h-4 w-4 mr-1.5" /> Back to Destinations
           </Link>
         </div>
 
