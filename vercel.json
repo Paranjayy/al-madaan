@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "NITRO_PRESET=vercel vite build",
+  "outputDirectory": ".vercel/output"
+}
