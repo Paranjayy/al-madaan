@@ -29,30 +29,88 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
         </div>
       )}
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-3.5 px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="space-y-1">
               <Link to="/" className="inline-flex items-center gap-3">
-                <img
-                  src="/images/logo.png"
-                  alt="Al Madaan Ventures"
-                  className="h-11 w-11 rounded-full object-cover shadow-soft border border-border/80"
-                />
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-strong text-accent-strong-foreground shadow-soft">
+                  A
+                </span>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
                     Al Madaan Ventures
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Kashmir taxi & local travel support
                   </p>
                 </div>
               </Link>
             </div>
 
-            <div className="flex items-center gap-2">
+            <nav className="grid grid-cols-3 gap-2 text-sm sm:flex sm:flex-wrap sm:items-center">
+              <Link
+                to="/"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Home
+              </Link>
+              <Link
+                to="/services"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Services
+              </Link>
+              <Link
+                to="/packages"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Packages
+              </Link>
+              <Link
+                to="/destinations"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Destinations
+              </Link>
+              <Link
+                to="/destinations"
+                search={{ view: "map" }}
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Kashmir Map
+              </Link>
+              <Link
+                to="/team"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Team
+              </Link>
+              <Link
+                to="/guide"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Guide
+              </Link>
+              <Link
+                to="/contact"
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Contact
+              </Link>
+            </nav>
+
+            <div className="flex flex-wrap items-center gap-2">
               <ThemeToggle />
               <a href="tel:0917006109912" aria-label="Call Al Madaan Ventures">
-                <Button variant="pill" size="sm" className="hidden sm:inline-flex">
+                <Button variant="pill" size="sm">
                   <Phone className="h-4 w-4" />
                   Call
                 </Button>
@@ -63,74 +121,12 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                 rel="noreferrer"
                 aria-label="Chat on WhatsApp"
               >
-                <Button variant="hero" size="sm" className="h-9 text-xs px-3">
+                <Button variant="hero" size="sm">
                   <MessageCircle className="h-4 w-4" />
-                  WhatsApp Booking
+                  WhatsApp
                 </Button>
               </a>
             </div>
-          </div>
-
-          <div className="border-t border-border/50 pt-2.5">
-            <nav className="flex items-center gap-1 overflow-x-auto pb-1.5 scrollbar-none flex-nowrap text-sm sm:flex-wrap">
-              <Link
-                to="/"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Home
-              </Link>
-              <Link
-                to="/services"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Services
-              </Link>
-              <Link
-                to="/packages"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Packages
-              </Link>
-              <Link
-                to="/destinations"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Destinations
-              </Link>
-              <Link
-                to="/destinations"
-                search={{ view: "map" }}
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Kashmir Map
-              </Link>
-              <Link
-                to="/team"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Team
-              </Link>
-              <Link
-                to="/guide"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Guide
-              </Link>
-              <Link
-                to="/contact"
-                activeProps={{ className: "nav-link nav-link-active" }}
-                className="nav-link shrink-0"
-              >
-                Contact
-              </Link>
-            </nav>
           </div>
 
           <div className="flex flex-col gap-3 border-t border-border/50 pt-3 lg:flex-row lg:items-center lg:justify-between">
