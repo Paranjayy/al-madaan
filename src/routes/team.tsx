@@ -34,9 +34,9 @@ export const Route = createFileRoute("/team")({
         content:
           "Meet Aalim and the team at Al Madaan Ventures — local Kashmir drivers with deep route knowledge, multilingual support, and a genuine love for hosting tourists.",
       },
-      { property: "og:url", content: "/team" },
+      { property: "og:url", content: "https://al-madaan.lovable.app/team" },
     ],
-    links: [{ rel: "canonical", href: "/team" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/team" }],
   }),
   component: TeamPage,
 });

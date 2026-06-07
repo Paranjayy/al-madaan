@@ -16,25 +16,28 @@ export const Route = createFileRoute("/destinations")({
   },
   head: () => ({
     meta: [
-      { title: "Kashmir Destinations — Visual Guide & Itinerary Builder | Al Madaan Ventures" },
+      { title: "Kashmir Destinations & Itinerary Builder | Al Madaan" },
       {
         name: "description",
         content:
-          "Browse Kashmir's most beautiful destinations — Srinagar, Gulmarg, Sonmarg, Pahalgam, Yusmarg, Doodhpathri, Martand. Build your custom itinerary and book instantly on WhatsApp.",
+          "Browse Srinagar, Gulmarg, Sonmarg, Pahalgam and more. Build a custom itinerary and book by WhatsApp.",
       },
       {
         property: "og:title",
-        content: "Kashmir Destinations | Al Madaan Ventures",
+        content: "Kashmir Destinations & Itinerary Builder | Al Madaan",
       },
       {
         property: "og:description",
         content:
-          "Visual destination guide for Kashmir — browse all spots, plan your custom itinerary, get instant WhatsApp booking.",
+          "Visual destination guide for Kashmir — browse spots, plan an itinerary, book on WhatsApp.",
       },
-      { property: "og:url", content: "/destinations" },
-      { property: "og:image", content: "/images/destinations/srinagar.jpg" },
+      { property: "og:url", content: "https://al-madaan.lovable.app/destinations" },
+      {
+        property: "og:image",
+        content: "https://al-madaan.lovable.app/images/destinations/srinagar.jpg",
+      },
     ],
-    links: [{ rel: "canonical", href: "/destinations" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/destinations" }],
   }),
   component: DestinationsPage,
 });

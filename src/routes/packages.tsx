@@ -98,9 +98,9 @@ export const Route = createFileRoute("/packages")({
         content:
           "Single-day and multi-day Kashmir itineraries with friendly local drivers and nominal pricing.",
       },
-      { property: "og:url", content: "/packages" },
+      { property: "og:url", content: "https://al-madaan.lovable.app/packages" },
     ],
-    links: [{ rel: "canonical", href: "/packages" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/packages" }],
   }),
   component: PackagesPage,
 });

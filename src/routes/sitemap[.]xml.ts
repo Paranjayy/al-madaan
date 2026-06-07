@@ -1,7 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+import { destinations } from "@/lib/destinations-data";
+
+const BASE_URL = "https://al-madaan.lovable.app";
+
+const packageSlugs = [
+  "srinagar-express",
+  "gulmarg-snow-day",
+  "pahalgam-valley",
+  "classic-4n-5d",
+];
 
 interface SitemapEntry {
   path: string;
@@ -17,7 +26,21 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/services", changefreq: "weekly", priority: "0.9" },
           { path: "/destinations", changefreq: "weekly", priority: "0.9" },
+          { path: "/packages", changefreq: "weekly", priority: "0.9" },
+          { path: "/guide", changefreq: "weekly", priority: "0.8" },
+          { path: "/guide/uber-in-srinagar", changefreq: "monthly", priority: "0.7" },
+          { path: "/team", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.8" },
+          ...destinations.map((d) => ({
+            path: `/destinations/${d.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
+          ...packageSlugs.map((s) => ({
+            path: `/packages/${s}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
         ];
 
         const urls = entries.map((e) =>
