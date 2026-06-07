@@ -18,6 +18,7 @@ import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
+import { Route as GuideUberInSrinagarRouteImport } from './routes/guide.uber-in-srinagar'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 
 const TeamRoute = TeamRouteImport.update({
@@ -65,6 +66,11 @@ const PackagesSlugRoute = PackagesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => PackagesRoute,
 } as any)
+const GuideUberInSrinagarRoute = GuideUberInSrinagarRouteImport.update({
+  id: '/uber-in-srinagar',
+  path: '/uber-in-srinagar',
+  getParentRoute: () => GuideRoute,
+} as any)
 const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -75,24 +81,26 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
-  '/guide': typeof GuideRoute
+  '/guide': typeof GuideRouteWithChildren
   '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/guide/uber-in-srinagar': typeof GuideUberInSrinagarRoute
   '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
-  '/guide': typeof GuideRoute
+  '/guide': typeof GuideRouteWithChildren
   '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/guide/uber-in-srinagar': typeof GuideUberInSrinagarRoute
   '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRoutesById {
@@ -100,12 +108,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
-  '/guide': typeof GuideRoute
+  '/guide': typeof GuideRouteWithChildren
   '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/guide/uber-in-srinagar': typeof GuideUberInSrinagarRoute
   '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/team'
     | '/destinations/$slug'
+    | '/guide/uber-in-srinagar'
     | '/packages/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/team'
     | '/destinations/$slug'
+    | '/guide/uber-in-srinagar'
     | '/packages/$slug'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/team'
     | '/destinations/$slug'
+    | '/guide/uber-in-srinagar'
     | '/packages/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -151,7 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
-  GuideRoute: typeof GuideRoute
+  GuideRoute: typeof GuideRouteWithChildren
   PackagesRoute: typeof PackagesRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -223,6 +235,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagesSlugRouteImport
       parentRoute: typeof PackagesRoute
     }
+    '/guide/uber-in-srinagar': {
+      id: '/guide/uber-in-srinagar'
+      path: '/uber-in-srinagar'
+      fullPath: '/guide/uber-in-srinagar'
+      preLoaderRoute: typeof GuideUberInSrinagarRouteImport
+      parentRoute: typeof GuideRoute
+    }
     '/destinations/$slug': {
       id: '/destinations/$slug'
       path: '/$slug'
@@ -245,6 +264,16 @@ const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
   DestinationsRouteChildren,
 )
 
+interface GuideRouteChildren {
+  GuideUberInSrinagarRoute: typeof GuideUberInSrinagarRoute
+}
+
+const GuideRouteChildren: GuideRouteChildren = {
+  GuideUberInSrinagarRoute: GuideUberInSrinagarRoute,
+}
+
+const GuideRouteWithChildren = GuideRoute._addFileChildren(GuideRouteChildren)
+
 interface PackagesRouteChildren {
   PackagesSlugRoute: typeof PackagesSlugRoute
 }
@@ -261,7 +290,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
-  GuideRoute: GuideRoute,
+  GuideRoute: GuideRouteWithChildren,
   PackagesRoute: PackagesRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

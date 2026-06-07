@@ -16,24 +16,24 @@ import { TravelerDashboard } from "@/components/traveler-dashboard";
 export const Route = createFileRoute("/guide")({
   head: () => ({
     meta: [
-      { title: "Kashmir Travel Guide — Tips for First-Time Visitors | Al Madaan Ventures" },
+      { title: "Kashmir Travel Guide for First-Time Visitors | Al Madaan" },
       {
         name: "description",
         content:
-          "Complete Kashmir travel guide — best seasons to visit, what to pack, safety tips, local customs, route planning, and interactive checklists from local drivers.",
+          "Best seasons, packing tips, safety, customs and route planning for Kashmir — by local drivers.",
       },
       {
         property: "og:title",
-        content: "Kashmir Travel Guide — Tips for First-Time Visitors | Al Madaan Ventures",
+        content: "Kashmir Travel Guide for First-Time Visitors | Al Madaan",
       },
       {
         property: "og:description",
         content:
-          "Everything you need to know before visiting Kashmir — seasonal guide, packing list, local customs, route tips, and how to book local taxis.",
+          "Seasonal guide, packing list, local customs and route tips for first-time visitors to Kashmir.",
       },
-      { property: "og:url", content: "/guide" },
+      { property: "og:url", content: "https://al-madaan.lovable.app/guide" },
     ],
-    links: [{ rel: "canonical", href: "/guide" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/guide" }],
   }),
   component: GuidePage,
 });

@@ -48,12 +48,12 @@ export const Route = createFileRoute("/")({
           "Tourist-friendly Kashmir taxi service with friendly local drivers, airport transfers, sightseeing, outstation trips, and multilingual support.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: heroPosterUrl },
+      { property: "og:url", content: "https://al-madaan.lovable.app/" },
+      { property: "og:image", content: `https://al-madaan.lovable.app${heroPosterUrl}` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: heroPosterUrl },
+      { name: "twitter:image", content: `https://al-madaan.lovable.app${heroPosterUrl}` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://al-madaan.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",

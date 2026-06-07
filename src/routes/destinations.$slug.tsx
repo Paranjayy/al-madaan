@@ -178,17 +178,28 @@ const subPlacesDb: Record<string, { name: string; desc: string; tip?: string }[]
 export const Route = createFileRoute("/destinations/$slug")({
   head: ({ params }) => {
     const dest = destinations.find((d) => d.slug === params.slug);
-    const title = dest ? `${dest.name} Travel Guide & Cab Fare | Al Madaan Ventures` : "Destination Details";
-    const description = dest ? `${dest.name} travel info: distance is ${dest.distance}, travel time is ${dest.time}. Best highlights: ${dest.highlights.join(", ")}.` : "Destination Details";
-    
+    const title = dest
+      ? `${dest.name} Travel Guide & Cab Fare | Al Madaan`
+      : "Destination | Al Madaan";
+    const rawDesc = dest
+      ? `${dest.name} (${dest.distance}, ${dest.time}). Top spots: ${dest.highlights.slice(0, 3).join(", ")}.`
+      : "Kashmir destination details by Al Madaan Ventures.";
+    const description = rawDesc.length > 158 ? rawDesc.slice(0, 155) + "…" : rawDesc;
+    const url = `https://al-madaan.lovable.app/destinations/${params.slug}`;
+    const image = dest
+      ? `https://al-madaan.lovable.app${dest.image}`
+      : "https://al-madaan.lovable.app/images/destinations/srinagar.jpg";
+
     return {
       meta: [
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
-        { property: "og:image", content: dest?.image || "" },
+        { property: "og:url", content: url },
+        { property: "og:image", content: image },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   component: DestinationDetailPage,
