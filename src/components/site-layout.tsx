@@ -77,6 +77,14 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                 Destinations
               </Link>
               <Link
+                to="/destinations"
+                search={{ view: "map" }}
+                activeProps={{ className: "nav-link nav-link-active" }}
+                className="nav-link"
+              >
+                Kashmir Map
+              </Link>
+              <Link
                 to="/team"
                 activeProps={{ className: "nav-link nav-link-active" }}
                 className="nav-link"

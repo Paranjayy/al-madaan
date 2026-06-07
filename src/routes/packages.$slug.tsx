@@ -210,6 +210,184 @@ const packageDb: Record<string, PackageDetails> = {
       "We can customize hotels based on your budget (Standard / Deluxe / Luxury).",
     ],
   },
+  "gurez-valley-expedition": {
+    name: "Gurez Valley Expedition 3N/4D",
+    days: "4 Days",
+    people: "2–6 guests",
+    description: "Offbeat borderland journey crossing Razdan Pass to Gurez.",
+    longDescription:
+      "Gurez Valley is an untouched wonderland bordering the LOC. Experience the dramatic ascent over Razdan Pass, meet the unique Dard-Shina community in Dawar, and wander under the giant shadow of Habba Khatoon peak. Ideal for travelers searching for real raw nature.",
+    highlights: [
+      "Epic drive over Razdan Pass (11,672 ft)",
+      "Habba Khatoon mountain sunset view",
+      "Traditional log-house border villages",
+      "Kishenganga River hikes & trout fishing",
+    ],
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Srinagar to Dawar (Gurez)",
+        desc: "Early morning start from Srinagar. Ascend Razdan Pass for a hot tea stop with view of Harmukh peaks, descending into Dawar by afternoon. Check-in to hotel/guesthouse.",
+      },
+      {
+        day: "Day 2",
+        title: "Habba Khatoon Peak & Local Villages",
+        desc: "Visit the spring of Habba Khatoon and explore surrounding Shina border villages like Mastan and Tulail. Walk along the scenic Kishenganga River bank.",
+      },
+      {
+        day: "Day 3",
+        title: "Hiking and Cultural Exchange",
+        desc: "Hike up to view the Army checkpoints (with respect to security guidelines) or explore the wooden architecture in Dawar market. Share stories with local elders.",
+      },
+      {
+        day: "Day 4",
+        title: "Gurez back to Srinagar",
+        desc: "Return drive crossing back over Razdan Pass. Stop at Manasbal Lake for a relaxing afternoon break before entering Srinagar.",
+      },
+    ],
+    priceEstimate: "₹18,000 - ₹22,000 total (Includes dedicated SUV, permits, and fuel)",
+    inclusions: [
+      "Dedicated 4x4 / Scorpio SUV for mountain terrain",
+      "Border entry permit coordination",
+      "All driver halts, tolls, and night allowances",
+    ],
+    exclusions: [
+      "Guesthouse / Hotel stay (recommend booking local home-stays)",
+      "Meals and personal guide charges",
+      "Tips and porter fees",
+    ],
+    tips: [
+      "Ensure you carry original ID cards (Aadhaar / Passport) as multiple army checkpoints check permits.",
+      "BSNL/Jio Postpaid works best in Gurez; expect very limited internet speed.",
+    ],
+  },
+  "kashmir-honeymoon-special": {
+    name: "Kashmir Honeymoon Special 5N/6D",
+    days: "6 Days",
+    people: "Couples",
+    description: "A romantic, slow-paced signature couple's getaway.",
+    longDescription:
+      "Specifically crafted for newlywed couples. Enjoy a romantic houseboat stay on Dal Lake, scenic gondola dates in Gulmarg, and walk through the alpine pine meadows of Pahalgam. Includes special touches like complimentary saffron tea and customized stops.",
+    highlights: [
+      "Sunset Shikara ride with flower deck",
+      "Phase 1 & 2 Gulmarg Gondola snow dates",
+      "Overnight stay at riverside Pahalgam hotel",
+      "Comfortable Dzire taxi with professional polite driver",
+    ],
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Arrival in Srinagar & Houseboat Stay",
+        desc: "Airport pickup, check-in to a luxury Dal Lake houseboat. Enjoy a romantic 2-hour decorated Shikara ride at sunset.",
+      },
+      {
+        day: "Day 2",
+        title: "Mughal Gardens & Srinagar Sightseeing",
+        desc: "Visit Nishat and Shalimar gardens. Go shopping for world-famous Pashmina shawls and local walnuts in the afternoon.",
+      },
+      {
+        day: "Day 3",
+        title: "Pahalgam Valley Transfer (Overnight)",
+        desc: "Drive to Pahalgam. Stop at saffron fields and apple gardens. Spend the night at a beautiful hotel overlooking the Lidder River.",
+      },
+      {
+        day: "Day 4",
+        title: "Baisaran (Mini Switzerland) Pony Ride",
+        desc: "Take a romantic horse ride to the deep-green meadows of Baisaran. Return to Srinagar hotel in the evening.",
+      },
+      {
+        day: "Day 5",
+        title: "Gulmarg Day Trip & Gondola Date",
+        desc: "Excursion to Gulmarg. Take the cable car ride together into high snow phases. Warm hot chocolate at local cafes.",
+      },
+      {
+        day: "Day 6",
+        title: "Airport Departure Transfer",
+        desc: "Check-out from Srinagar hotel, quick souvenirs shopping, and transfer to airport.",
+      },
+    ],
+    priceEstimate: "₹16,500 - ₹19,000 total (Cab + Shikara ride included)",
+    inclusions: [
+      "Dedicated Toyota Dzire for all 6 days",
+      "Complimentary standard Shikara ride",
+      "Driver night allowances, highway tolls, airport parking",
+    ],
+    exclusions: [
+      "Hotel / Houseboat rooms (can bundle premium rooms on request)",
+      "Gondola tickets and local Union cabs in Pahalgam",
+      "Special setups like candle-light dinner or flower decor",
+    ],
+    tips: [
+      "Book Gondola tickets at least 25 days in advance.",
+      "Houseboat nights get cold even in summer; pack light jackets.",
+    ],
+  },
+  "complete-offbeat-kashmir": {
+    name: "Complete Offbeat Kashmir 6N/7D",
+    days: "7 Days",
+    people: "Adventurers / Families",
+    description: "The ultimate uncrowded tour visiting Kashmir's secret valleys.",
+    longDescription:
+      "Avoid the mass tourist crowds and discover the hidden beauty of Kashmir. This comprehensive itinerary covers the majestic cascades of Aharbal, the quiet grasslands of Yusmarg, the pristine rapids of Doodhpathri, and the high-altitude pass of Sinthan Top.",
+    highlights: [
+      "Listen to the roar of Aharbal Waterfall",
+      "Wander through crowd-free Yusmarg basins",
+      "Touch year-round snow at Sinthan Top (12,000 ft)",
+      "Walk the virgin trails of Doodhpathri",
+    ],
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Srinagar Arrival & Manasbal Lake",
+        desc: "Airport pickup. Check-in to hotel. Drive to Manasbal Lake (deepest lake) for a quiet shikara ride amidst lotus flowers.",
+      },
+      {
+        day: "Day 2",
+        title: "Yusmarg Offbeat Day Trip",
+        desc: "Excursion to Yusmarg. Hike to Doodh Ganga stream or take a peaceful pony trail to Nilnag Lake.",
+      },
+      {
+        day: "Day 3",
+        title: "Doodhpathri Meadow Excursion",
+        desc: "Drive to the 'Meadow of Milk'. Relax by the Shaliganga rapids and enjoy fresh tea in traditional shepherd mud-houses.",
+      },
+      {
+        day: "Day 4",
+        title: "Aharbal Waterfall (South Kashmir)",
+        desc: "Visit the 'Niagara of Kashmir' waterfall. Explore surrounding heritage pine trails and return to Srinagar.",
+      },
+      {
+        day: "Day 5",
+        title: "Drive to Kokernag & Sinthan Top (Overnight Kokernag)",
+        desc: "Scenic highway drive to Kokernag Botanical Gardens, proceeding up to the snowy peak of Sinthan Top. Night halt in Kokernag.",
+      },
+      {
+        day: "Day 6",
+        title: "Verinag Source to Srinagar",
+        desc: "Visit the historic octagonal spring pool of Verinag (source of River Jhelum) and return to Srinagar.",
+      },
+      {
+        day: "Day 7",
+        title: "Airport Departure Transfer",
+        desc: "Morning Shikara ride on Dal Lake, check-out, and drop off at the airport.",
+      },
+    ],
+    priceEstimate: "₹24,000 - ₹28,000 total (Includes return transport for all sites)",
+    inclusions: [
+      "Dedicated clean Toyota Sedan for 7 days",
+      "Outstation driver halts, tolls, permit charges",
+      "Srinagar airport pickup & drop",
+    ],
+    exclusions: [
+      "Hotels / Guesthouses",
+      "Meals and entry fees",
+      "Trekking / pony riding guides",
+    ],
+    tips: [
+      "This route involves longer daily drives — carry motion-sickness medicines if needed.",
+      "Bring warm thermal layers as Sinthan Top is windy and freezing year-round.",
+    ],
+  },
 };
 
 export const Route = createFileRoute("/packages/$slug")({

@@ -42,6 +42,45 @@ const packages = [
     highlights: ["Srinagar (2N)", "Gulmarg day trip", "Pahalgam (1N)", "Sonmarg day trip"],
     note: "Most-requested itinerary — pricing on request.",
   },
+  {
+    slug: "gurez-valley-expedition",
+    name: "Gurez Valley Expedition 3N/4D",
+    days: "4 days",
+    people: "2-6 guests",
+    highlights: [
+      "Crossing Razdan Pass (11,672 ft)",
+      "Habba Khatoon peak sunset",
+      "Dawar border town history",
+      "Kishenganga River walks",
+    ],
+    note: "High-altitude borderland trip. Unique experience.",
+  },
+  {
+    slug: "kashmir-honeymoon-special",
+    name: "Kashmir Honeymoon Special 5N/6D",
+    days: "6 days",
+    people: "Couples",
+    highlights: [
+      "Traditional Srinagar Houseboat (1N)",
+      "Cozy stay in Pahalgam pine resorts",
+      "Gulmarg Gondola snow dates",
+      "Candle-light dinner on request",
+    ],
+    note: "Slow-paced romantic holiday for newly-weds.",
+  },
+  {
+    slug: "complete-offbeat-kashmir",
+    name: "Complete Offbeat Kashmir 6N/7D",
+    days: "7 days",
+    people: "Adventurers / Families",
+    highlights: [
+      "Yusmarg pristine forest walks",
+      "Doodhpathri milky rapids",
+      "Aharbal Waterfall (Niagara of Kashmir)",
+      "Sinthan Top snow peak view",
+    ],
+    note: "Perfect for secondary visits or uncrowded travel.",
+  },
 ];
 
 export const Route = createFileRoute("/packages")({

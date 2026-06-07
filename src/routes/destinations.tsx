@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Clock, Calendar, Plus, Check, MessageCircle, Grid, Map } from "lucide-react";
 
@@ -9,6 +9,11 @@ import { destinations } from "@/lib/destinations-data";
 import { KashmirMap } from "@/components/kashmir-map";
 
 export const Route = createFileRoute("/destinations")({
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      view: (search.view as "grid" | "map") || "grid",
+    };
+  },
   head: () => ({
     meta: [
       { title: "Kashmir Destinations — Visual Guide & Itinerary Builder | Al Madaan Ventures" },
@@ -148,7 +153,15 @@ function DestinationCard({ dest }: { dest: (typeof destinations)[number] }) {
 }
 
 function DestinationsPage() {
-  const [viewMode, setViewMode] = useState<"grid" | "map">("grid");
+  const { view } = Route.useSearch();
+  const [viewMode, setViewMode] = useState<"grid" | "map">(view || "grid");
+
+  // Sync state if search param changes (e.g. clicking different links)
+  useEffect(() => {
+    if (view && view !== viewMode) {
+      setViewMode(view);
+    }
+  }, [view]);
 
   return (
     <SiteLayout>
