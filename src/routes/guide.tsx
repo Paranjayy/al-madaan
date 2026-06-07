@@ -483,7 +483,7 @@ function GuidePage() {
                 <button
                   key={key}
                   type="button"
-                  onClick={() => setActiveTab(key)}
+                  onClick={() => setActiveTab(key as typeof activeTab)}
                   className={`flex flex-col items-center gap-1 rounded-xl p-3 text-center transition border ${
                     isActive
                       ? "border-primary bg-primary/10 text-primary"

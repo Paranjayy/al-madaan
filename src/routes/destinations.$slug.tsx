@@ -220,7 +220,7 @@ function DestinationDetailPage() {
       L.Marker.prototype.options.icon = DefaultIcon;
 
       if (!mapInstance.current) {
-        const map = L.map(mapRef.current, {
+        const map = L.map(mapRef.current!, {
           center: [dest.lat, dest.lng],
           zoom: 11,
           zoomControl: true,
