@@ -223,3 +223,72 @@ start building and commit push regularly
 # prompt 3
 
 - build/commit/push/deploy & views/filters/sorting/grouping & ui/ux must be professional goated with solid desing/uikit/color pallate &  add english/hindi/kashmiri/urdu as primary languages and other all languages properly ig use modern stakc dont use vanilla html and things use typescript react and modern frameworks and anything everything needed required ig and cant u convert or name change html to ts or things if cant then commit push deploy first then remove if required dawg to avoid tokens loss ig 
+
+# prompt 4 
+
+- dont u again remove prompts & important things files dont remove again ig dawg 
+- whenever u commit push deploy and build lmk where can i test prolly deploy to vercel from vercel cli! and if issue in website like lovable.app link then i would let you know 
+- use leaflet/openstreetmap or freemap with integration to gmap like its link not the api it is expensive af and it would be cool if distnace and some nice goated features dawg ig what do you think
+- 
+====
+## my msg to him i went to kashmir trip btw from 30may26 to 5th jun26 & this we are making at 7th jun i made prototype on 2nd day when we met him like 3rd jun26(was second day went to martand sun temple and first day with him at sonamarg & before 1st jun26 we returned from his friend mohinder singh)
+
+- sorry bhaiya thodi der hogayi 
+- kal 6th ko hum raat 12baje pohanche junagadh/gujarat - rajkot se khana kha ke highway se
+- aur yaha pe 40*c -  hai bohot garmi ho rahi hai oven mai dal diya ho wesa lag raha hai srinagar ki comparision mai but thode din mai acclimatize ho jayenge pehle jaise
+- aur garmi mai sardi hogayi
+- pehle thodi achi website nahi thi isiliye der lagi ab achi kar di hai
+- ye lovable.dev aur antigravity.google se banayi hai usko english mai bolna padta hai kaisa chahiye
+- is se acha bana ne ke liye mai abhi sikh raha hoon ye pura AI ne banayi hai
+- apke it wale bande ko bhi easily kuch tweak kar sakta hai ya aap bhi 
+- apka instagram mai kam log dekh rahe hai bohot badhiya content hai videos and photos shayad marketing ya trendy chiz pe banaoge to engagement badh sakti hai mere hisab se
+- ye sab thoda generic ya example upar se lagega par aap agar pdf ya koi document tour ka bhejo ge to us ke upar se website pe sab hojayegi
+- ismee pictures & map hosakenge to mai dal dunga aap ke liye aur hamare jaise tourist ke liye aasan hoga us se 
+- srinagar mai pehle photo jaise website thi
+- dusra image ki tarah abhi dikh rahi hai
+- tisra photo domain name ka hai har saal dene padte hai domain name link ka naam hota hai jaise ki instagram.com aur youtube.com 
+- aur chatgpt se ye sab bate kashmiri/urdu english/hindi mai se samaj sakte ho aap ya jyada jaan sakte ho
+- 
+===
+- almaadan.com kisine kharid liya hai pata nahi aapne liya ya kisi aur ne
+-  aur al-maadan.com hai  abhi 11.25$ mai (ye aapka it ka banda leke deploy karsakega pura price uska hi hoga maine free mai bana di ab tak ka sab)
+
+
+- Kashmir Taxi Service & Tours | Al Madaan Ventures (https://al-madaan.lovable.app/) (ye aapki ab chalegi al-madaan.lovable.app abhi ke liye fir domain link karsakoge kharidne ke baad)
+- TripAdvisor — Plan smarter trips by budget, weather & vibe (https://trip-advisor.lovable.app/) (ye 4th image ya ye website maine papa ko guidance ke liye banayi thi)
+===
+- Kashmir Taxi Tours - Lovable (https://lovable.dev/projects/0d29ba91-dd94-4615-9ea6-30e4b846088f)(isme se baat karni hogi! ya antigravity.google mai se wo thoda technical hoga)
+- Paranjayy/al-madaan (https://github.com/Paranjayy/al-madaan) (agar antigravity.google mai se technical baat karoge to ye ya wo dono mai se kuch de sakoge)
+- Kashmir Taxi Service & Tours | Al Madaan Ventures (https://al-madaan.lovable.app/) (website aapki latest isme ayegi ya pehle tha usme)
+- (1) Instagram (https://www.instagram.com/al_madaan) apki company
+- (1) Instagram (https://www.instagram.com/sahilhamdani109) apka instagram
+- Sahil Hamdani (@sahilhamdani109) • Threads, Say more (https://www.threads.com/@sahilhamdani109?xmt=AQG0InVB35W8SF8Lx4_hwXnll8pxKuZwXVOmVyoM9CS8Tlk)
+- Share on WhatsApp (https://api.whatsapp.com/send/?phone=91917006109912&text&type=phone_number&app_absent=0)(aapka whatsapp link)
+### few additional links which werent in msg
+
+Kashmir Taxi Service & Tours | Al Madaan Ventures
+https://al-madaan.lovable.app/
+
+Kashmir Taxi Tours - Lovable
+https://lovable.dev/projects/0d29ba91-dd94-4615-9ea6-30e4b846088f
+
+Paranjayy/al-madaan
+https://github.com/Paranjayy/al-madaan
+
+Vercel Domains: Search & Buy Domain Names - Private & Fast
+https://vercel.com/domains/search?q=almadaan
+
+Vercel Domains: Search & Buy Domain Names - Private & Fast
+https://vercel.com/domains/search?q=al-madaan
+
+https://www.almaadan.com
+https://www.almaadan.com/
+
+Failed to open page
+http://al-maadan.com/
+
+TripAdvisor — Plan smarter trips by budget, weather & vibe
+https://trip-advisor.lovable.app/
+
+
+# prompt 5
