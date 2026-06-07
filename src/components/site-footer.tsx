@@ -28,7 +28,10 @@ export function SiteFooter({ t }: SiteFooterProps) {
               Contact
             </h3>
             <div className="space-y-3 text-sm text-footer-muted">
-              <a href="tel:0917006109912" className="flex items-center gap-3 transition-colors hover:text-footer-foreground">
+              <a
+                href="tel:0917006109912"
+                className="flex items-center gap-3 transition-colors hover:text-footer-foreground"
+              >
                 <Phone className="h-4 w-4" />
                 <span>0917006109912</span>
               </a>
@@ -54,7 +57,10 @@ export function SiteFooter({ t }: SiteFooterProps) {
             </h3>
             <div className="flex flex-wrap gap-2">
               {t.destinations.map((destination) => (
-                <span key={destination} className="rounded-full border border-brand-contrast/15 bg-footer-elevated px-3 py-1 text-sm text-footer-foreground">
+                <span
+                  key={destination}
+                  className="rounded-full border border-brand-contrast/15 bg-footer-elevated px-3 py-1 text-sm text-footer-foreground"
+                >
                   {destination}
                 </span>
               ))}

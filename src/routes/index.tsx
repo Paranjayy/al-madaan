@@ -241,7 +241,10 @@ function IndexPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24" id="map-route">
+      <section
+        className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24"
+        id="map-route"
+      >
         <div className="space-y-6">
           <div>
             <p className="section-kicker">{t.routesTitle}</p>
@@ -253,13 +256,19 @@ function IndexPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24" id="instagram">
+      <section
+        className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24"
+        id="instagram"
+      >
         <div className="space-y-8">
           <div className="text-center space-y-2">
             <p className="section-kicker">{t.socialTitle}</p>
-            <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">{t.socialDescription}</h2>
+            <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">
+              {t.socialDescription}
+            </h2>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              Follow Aalim & Umair's journey in Srinagar, Gulmarg, and Pahalgam. Tap on any post to view live updates on Instagram.
+              Follow Aalim & Umair's journey in Srinagar, Gulmarg, and Pahalgam. Tap on any post to
+              view live updates on Instagram.
             </p>
           </div>
           <InstagramGallery />
@@ -273,7 +282,8 @@ function IndexPage() {
               <p className="section-kicker">Local Support</p>
               <h3 className="text-2xl font-bold text-foreground">For Love of Kashmir</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                We design and build this website to connect travelers from all parts of India, Europe, and the world directly to friendly local driver companions.
+                We design and build this website to connect travelers from all parts of India,
+                Europe, and the world directly to friendly local driver companions.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -293,7 +303,9 @@ function IndexPage() {
                 <Globe2 className="h-5 w-5" />
               </span>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                English, Hindi, Kashmiri, and Urdu quick-copy translations are built-in natively at the top-bar. Use the widget below to translate the entire textual page into any other language.
+                English, Hindi, Kashmiri, and Urdu quick-copy translations are built-in natively at
+                the top-bar. Use the widget below to translate the entire textual page into any
+                other language.
               </p>
             </div>
             <div className="rounded-[var(--radius-xl)] border border-border/70 bg-card p-4">

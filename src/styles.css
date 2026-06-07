@@ -58,7 +58,7 @@
   --popover-foreground: oklch(0.22 0.04 165);
   --primary: oklch(0.28 0.08 165); /* Deep Pine Green */
   --primary-foreground: oklch(0.99 0.003 165);
-  --primary-strong: oklch(0.20 0.06 165);
+  --primary-strong: oklch(0.2 0.06 165);
   --secondary: oklch(0.94 0.03 165); /* Soft Mint Green */
   --secondary-foreground: oklch(0.25 0.06 165);
   --muted: oklch(0.96 0.008 165);

@@ -39,7 +39,9 @@ function ServicesPage() {
             Flexible rides and practical travel help across Kashmir.
           </h1>
           <p className="text-lg leading-8 text-muted-foreground">
-            Al Madaan Ventures is set up for visitors who need reliable transport plus local assistance. The focus is simple: clear communication, helpful planning, comfortable travel, and fair pricing.
+            Al Madaan Ventures is set up for visitors who need reliable transport plus local
+            assistance. The focus is simple: clear communication, helpful planning, comfortable
+            travel, and fair pricing.
           </p>
         </div>
 
@@ -67,7 +69,8 @@ function ServicesPage() {
               Transparent Cab Fares & Packages
             </h2>
             <p className="text-base text-muted-foreground">
-              Filter, sort, search, or group Kashmiri routes and tour packages. Click book to pre-compose your WhatsApp request.
+              Filter, sort, search, or group Kashmiri routes and tour packages. Click book to
+              pre-compose your WhatsApp request.
             </p>
           </div>
           <FareTableInteractive />
@@ -101,12 +104,19 @@ function ServicesPage() {
                 a: "Cash, UPI, and bank transfer. Confirmed fare is shared on WhatsApp before the trip — no surprises.",
               },
             ].map((f) => (
-              <details key={f.q} className="group rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition hover:shadow-md">
+              <details
+                key={f.q}
+                className="group rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition hover:shadow-md"
+              >
                 <summary className="cursor-pointer text-base font-semibold text-foreground select-none list-none flex justify-between items-center">
                   <span>{f.q}</span>
-                  <span className="text-primary text-lg font-bold group-open:rotate-45 transition-transform duration-200">+</span>
+                  <span className="text-primary text-lg font-bold group-open:rotate-45 transition-transform duration-200">
+                    +
+                  </span>
                 </summary>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground border-t border-border/40 pt-3">{f.a}</p>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground border-t border-border/40 pt-3">
+                  {f.a}
+                </p>
               </details>
             ))}
           </div>

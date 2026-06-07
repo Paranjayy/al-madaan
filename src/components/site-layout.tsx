@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { SiteFooter } from "@/components/site-footer";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import type { LanguageCode } from "@/lib/site-content";
 import { translations } from "@/lib/site-content";
@@ -76,6 +77,7 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
             </nav>
 
             <div className="flex flex-wrap items-center gap-2">
+              <ThemeToggle />
               <a href="tel:0917006109912" aria-label="Call Al Madaan Ventures">
                 <Button variant="pill" size="sm">
                   <Phone className="h-4 w-4" />

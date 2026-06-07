@@ -20,7 +20,7 @@ const initialFares: FareItem[] = [
     duration: "1 Hour",
     price: 900,
     priceDisplay: "₹900",
-    details: "One-way transfer from Srinagar International Airport (SXR) to city limits."
+    details: "One-way transfer from Srinagar International Airport (SXR) to city limits.",
   },
   {
     id: "srinagar-local",
@@ -29,7 +29,7 @@ const initialFares: FareItem[] = [
     duration: "8 Hours",
     price: 2000,
     priceDisplay: "₹2,000",
-    details: "Includes Mughal Gardens, Dal Lake shores, Old City, Shrines, and Pari Mahal."
+    details: "Includes Mughal Gardens, Dal Lake shores, Old City, Shrines, and Pari Mahal.",
   },
   {
     id: "srinagar-gulmarg",
@@ -38,7 +38,7 @@ const initialFares: FareItem[] = [
     duration: "Full Day",
     price: 2600,
     priceDisplay: "₹2,600",
-    details: "Round trip to Gulmarg valley. Excludes local guide/pony inside Gulmarg if required."
+    details: "Round trip to Gulmarg valley. Excludes local guide/pony inside Gulmarg if required.",
   },
   {
     id: "srinagar-sonmarg",
@@ -47,7 +47,7 @@ const initialFares: FareItem[] = [
     duration: "Full Day",
     price: 3000,
     priceDisplay: "₹3,000",
-    details: "Round trip to Sonmarg glacier point. Scenic driver stops included."
+    details: "Round trip to Sonmarg glacier point. Scenic driver stops included.",
   },
   {
     id: "srinagar-pahalgam",
@@ -56,7 +56,7 @@ const initialFares: FareItem[] = [
     duration: "Full Day",
     price: 3200,
     priceDisplay: "₹3,200",
-    details: "Round trip to Pahalgam valleys. Includes driver guide support."
+    details: "Round trip to Pahalgam valleys. Includes driver guide support.",
   },
   {
     id: "srinagar-doodhpathri",
@@ -65,7 +65,7 @@ const initialFares: FareItem[] = [
     duration: "Full Day",
     price: 2400,
     priceDisplay: "₹2,400",
-    details: "Day tour to Meadow of Milk. Beautiful river spots."
+    details: "Day tour to Meadow of Milk. Beautiful river spots.",
   },
   {
     id: "srinagar-yusmarg",
@@ -74,7 +74,7 @@ const initialFares: FareItem[] = [
     duration: "Full Day",
     price: 2500,
     priceDisplay: "₹2,500",
-    details: "Offbeat dense pine forest meadow. Round trip."
+    details: "Offbeat dense pine forest meadow. Round trip.",
   },
   {
     id: "pkg-classic",
@@ -83,7 +83,7 @@ const initialFares: FareItem[] = [
     duration: "5 Days",
     price: 25000,
     priceDisplay: "₹25,000",
-    details: "Complete basic tour including Dal Lake, Gulmarg, and Pahalgam hotels + cab."
+    details: "Complete basic tour including Dal Lake, Gulmarg, and Pahalgam hotels + cab.",
   },
   {
     id: "pkg-exotic",
@@ -92,8 +92,8 @@ const initialFares: FareItem[] = [
     duration: "6 Days",
     price: 25999,
     priceDisplay: "₹25,999",
-    details: "Adventure focused itinerary covering glaciers, houseboats, and offbeat spots."
-  }
+    details: "Adventure focused itinerary covering glaciers, houseboats, and offbeat spots.",
+  },
 ];
 
 export function FareTableInteractive() {
@@ -108,15 +108,16 @@ export function FareTableInteractive() {
 
     // Search query
     if (searchQuery.trim().length > 0) {
-      result = result.filter(item => 
-        item.route.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.details.toLowerCase().includes(searchQuery.toLowerCase())
+      result = result.filter(
+        (item) =>
+          item.route.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.details.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
 
     // Category Filter
     if (activeCategory !== "All") {
-      result = result.filter(item => item.type === activeCategory);
+      result = result.filter((item) => item.type === activeCategory);
     }
 
     // Sorting
@@ -138,12 +139,15 @@ export function FareTableInteractive() {
   const groupedFares = useMemo(() => {
     if (!groupByType) return { "All Fares": filteredSortedFares };
 
-    return filteredSortedFares.reduce((acc, curr) => {
-      const type = curr.type;
-      if (!acc[type]) acc[type] = [];
-      acc[type].push(curr);
-      return acc;
-    }, {} as Record<string, FareItem[]>);
+    return filteredSortedFares.reduce(
+      (acc, curr) => {
+        const type = curr.type;
+        if (!acc[type]) acc[type] = [];
+        acc[type].push(curr);
+        return acc;
+      },
+      {} as Record<string, FareItem[]>,
+    );
   }, [filteredSortedFares, groupByType]);
 
   const handleInquire = (route: string, price: string) => {
@@ -155,7 +159,6 @@ export function FareTableInteractive() {
     <div className="space-y-6">
       {/* Control Filters Bar */}
       <div className="grid gap-4 sm:flex sm:items-center sm:justify-between flex-wrap bg-panel border border-border/80 p-4 rounded-2xl shadow-soft">
-        
         {/* Search */}
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -191,7 +194,7 @@ export function FareTableInteractive() {
             <ArrowUpDown className="h-3.5 w-3.5" />
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as "name" | "price-asc" | "price-desc")}
               className="bg-card border border-border rounded-lg p-1 outline-none text-foreground font-semibold"
             >
               <option value="price-asc">Price (Low → High)</option>
@@ -215,17 +218,20 @@ export function FareTableInteractive() {
 
       {/* Main Table Card */}
       <div className="surface-card overflow-hidden">
-        {Object.keys(groupedFares).length === 0 || (Object.keys(groupedFares).length === 1 && Object.values(groupedFares)[0].length === 0) ? (
+        {Object.keys(groupedFares).length === 0 ||
+        (Object.keys(groupedFares).length === 1 && Object.values(groupedFares)[0].length === 0) ? (
           <div className="p-8 text-center text-muted-foreground space-y-2">
             <Search className="h-8 w-8 mx-auto stroke-muted-foreground/50 animate-bounce" />
             <p className="text-sm font-semibold">No matching routes found.</p>
-            <p className="text-xs">Try searching for other locations like Srinagar, Gulmarg, or Pahalgam.</p>
+            <p className="text-xs">
+              Try searching for other locations like Srinagar, Gulmarg, or Pahalgam.
+            </p>
           </div>
         ) : (
           <div className="divide-y divide-border/60">
             {Object.entries(groupedFares).map(([groupName, items]) => {
               if (items.length === 0) return null;
-              
+
               return (
                 <div key={groupName} className="p-4 sm:p-6 space-y-4">
                   {groupByType && (
@@ -236,8 +242,8 @@ export function FareTableInteractive() {
 
                   <div className="grid gap-4">
                     {items.map((item) => (
-                      <div 
-                        key={item.id} 
+                      <div
+                        key={item.id}
                         className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-xl border border-border/40 bg-card/40 hover:bg-card hover:border-primary/25 transition shadow-sm hover:shadow-md"
                       >
                         <div className="space-y-1.5 flex-1">
@@ -257,13 +263,17 @@ export function FareTableInteractive() {
 
                         <div className="flex items-center justify-between sm:justify-end gap-6 border-t border-border/40 sm:border-none pt-3 sm:pt-0">
                           <div className="text-right sm:text-right">
-                            <span className="block text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Estimated Fare</span>
-                            <span className="text-lg font-black text-primary">{item.priceDisplay}</span>
+                            <span className="block text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                              Estimated Fare
+                            </span>
+                            <span className="text-lg font-black text-primary">
+                              {item.priceDisplay}
+                            </span>
                           </div>
 
-                          <a 
-                            href={handleInquire(item.route, item.priceDisplay)} 
-                            target="_blank" 
+                          <a
+                            href={handleInquire(item.route, item.priceDisplay)}
+                            target="_blank"
                             rel="noreferrer"
                           >
                             <Button variant="hero" size="sm" className="flex items-center gap-1.5">
@@ -285,7 +295,10 @@ export function FareTableInteractive() {
       <div className="flex items-start gap-2.5 bg-panel p-4 rounded-xl border border-border/50 text-xs text-muted-foreground">
         <Info className="h-4 w-4 text-accent-strong shrink-0 mt-0.5" />
         <p className="leading-relaxed">
-          * Standard Union Prices are base estimations for the Toyota Dzire sedan (capacity: 4 guests). Rates exclude overnight halts, driver night allowance, toll taxes, and local sightseeing cabs inside specific restricted areas (e.g. Aru Valley union cabs or Gulmarg local pony charges) which have strict localized transport administration rules.
+          * Standard Union Prices are base estimations for the Toyota Dzire sedan (capacity: 4
+          guests). Rates exclude overnight halts, driver night allowance, toll taxes, and local
+          sightseeing cabs inside specific restricted areas (e.g. Aru Valley union cabs or Gulmarg
+          local pony charges) which have strict localized transport administration rules.
         </p>
       </div>
     </div>

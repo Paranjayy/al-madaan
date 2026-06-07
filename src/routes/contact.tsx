@@ -38,7 +38,8 @@ function ContactPage() {
               Talk directly with the team before your Kashmir trip.
             </h1>
             <p className="text-lg leading-8 text-muted-foreground">
-              For now, the fastest way to book is by phone or WhatsApp. Share your travel dates, pickup point, number of people, and destination plans.
+              For now, the fastest way to book is by phone or WhatsApp. Share your travel dates,
+              pickup point, number of people, and destination plans.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -49,7 +50,12 @@ function ContactPage() {
                   <p className="contact-value">0917006109912</p>
                 </div>
               </a>
-              <a href="https://wa.me/91917006109912" target="_blank" rel="noreferrer" className="contact-card">
+              <a
+                href="https://wa.me/91917006109912"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-card"
+              >
                 <MessageCircle className="h-5 w-5 text-primary" />
                 <div>
                   <p className="contact-label">WhatsApp</p>

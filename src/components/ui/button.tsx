@@ -18,7 +18,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         hero: "bg-primary text-primary-foreground shadow-hero hover:bg-primary-strong",
         pill: "border border-border bg-panel text-foreground shadow-soft hover:bg-accent",
-        pillActive: "bg-accent-strong text-accent-strong-foreground shadow-soft hover:bg-accent-strong/90",
+        pillActive:
+          "bg-accent-strong text-accent-strong-foreground shadow-soft hover:bg-accent-strong/90",
       },
       size: {
         default: "h-9 px-4 py-2",

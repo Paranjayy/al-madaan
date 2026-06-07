@@ -19,19 +19,23 @@ export const destinations = [
 export const serviceHighlights = [
   {
     title: "Airport pickup & drop",
-    description: "Reliable transfers for Srinagar airport arrivals, departures, and hotel connections.",
+    description:
+      "Reliable transfers for Srinagar airport arrivals, departures, and hotel connections.",
   },
   {
     title: "Local sightseeing",
-    description: "Comfortable day trips around Srinagar, gardens, lakes, viewpoints, and nearby attractions.",
+    description:
+      "Comfortable day trips around Srinagar, gardens, lakes, viewpoints, and nearby attractions.",
   },
   {
     title: "Outstation tours",
-    description: "Flexible rides to Kashmir's most loved destinations with practical local guidance.",
+    description:
+      "Flexible rides to Kashmir's most loved destinations with practical local guidance.",
   },
   {
     title: "Hotel coordination",
-    description: "Help with hotel pickup, drop, and smoother trip planning for visitors unfamiliar with the region.",
+    description:
+      "Help with hotel pickup, drop, and smoother trip planning for visitors unfamiliar with the region.",
   },
 ];
 
@@ -46,18 +50,24 @@ export const reasons = [
 
 export const destinationCards = [
   {
+    slug: "srinagar",
     name: "Srinagar City Tour",
-    description: "Dal Lake, Mughal gardens, old-city culture, shrines, and calm evening lake views.",
+    description:
+      "Dal Lake, Mughal gardens, old-city culture, shrines, and calm evening lake views.",
   },
   {
+    slug: "gulmarg",
     name: "Gulmarg",
-    description: "Snow season rides, gondola access support, meadow views, and full-day mountain travel.",
+    description:
+      "Snow season rides, gondola access support, meadow views, and full-day mountain travel.",
   },
   {
+    slug: "sonmarg",
     name: "Sonmarg",
     description: "High mountain scenery, glacier viewpoints, and picturesque road journeys.",
   },
   {
+    slug: "pahalgam",
     name: "Pahalgam",
     description: "River valleys, pine forests, photo stops, and relaxed nature-focused day plans.",
   },
@@ -87,7 +97,8 @@ export const translations = {
     languagesTitle: "Language support",
     languagesDescription:
       "Use the quick language buttons for key copy and Google Translate for broader page translation.",
-    footerTagline: "Friendly Kashmir travel, guided by locals who care about the trip as much as the destination.",
+    footerTagline:
+      "Friendly Kashmir travel, guided by locals who care about the trip as much as the destination.",
     footerNote:
       "Al Madaan Ventures is currently operating with two taxis and a tourist-first approach focused on comfort, honesty, and helpful local knowledge.",
     destinations,
@@ -115,7 +126,8 @@ export const translations = {
     languagesTitle: "भाषा सहायता",
     languagesDescription:
       "मुख्य जानकारी के लिए भाषा बटन और पूरे पेज के लिए Google Translate का उपयोग करें।",
-    footerTagline: "दोस्ताना कश्मीर यात्रा, ऐसे स्थानीय लोगों के साथ जो सफ़र की उतनी ही परवाह करते हैं जितनी मंज़िल की।",
+    footerTagline:
+      "दोस्ताना कश्मीर यात्रा, ऐसे स्थानीय लोगों के साथ जो सफ़र की उतनी ही परवाह करते हैं जितनी मंज़िल की।",
     footerNote:
       "Al Madaan Ventures अभी दो टैक्सियों के साथ काम कर रहा है और आराम, ईमानदारी और उपयोगी स्थानीय जानकारी पर केंद्रित है।",
     destinations,
@@ -132,14 +144,12 @@ export const translations = {
     trustDescription:
       "یہِ چھُ خاص کر سیاحن ہندِ سہولیت خاطرٕ بناونہ آمُت تاکہ تِمن میلِ صریح بات چیت تہٕ پرسکون سفر۔",
     routesTitle: "مقبول راستے تہٕ سفری تجاویز",
-    routesDescription:
-      "موجودہ معلومات تہٕ پوسٹرس پیٹھ مبنی ابتدائی سفری راستن ہنزِ فہرست۔",
+    routesDescription: "موجودہ معلومات تہٕ پوسٹرس پیٹھ مبنی ابتدائی سفری راستن ہنزِ فہرست۔",
     servicesTitle: "سفرس ماورا مفید مدد",
     servicesDescription:
       "ایئرپورٹ پک اپ پیٹھہٕ سفری منصوبہ بندی تان، یہِ سروس چھِ نئے مسافرن ہندِ خاطرٕ آسان بناونہ آمٕژ۔",
     socialTitle: "سفرکِہ نظارِ وُچھیو",
-    socialDescription:
-      "انسٹاگرام پیٹھ وُچھیو ال مدان وینچرس ہندِ لوک، جاے تہٕ سفرک انداز۔",
+    socialDescription: "انسٹاگرام پیٹھ وُچھیو ال مدان وینچرس ہندِ لوک، جاے تہٕ سفرک انداز۔",
     languagesTitle: "زبان ہنزِ سہولیت",
     languagesDescription:
       "اہم معلومات خاطرٕ زبان منتخب کٔریو تہٕ پورے پیجس ترجمہ کٔرنہِ خاطرٕ گوگل ٹرانسلیٹک استعمال کٔریو۔",
@@ -157,8 +167,7 @@ export const translations = {
     secondaryCta: "سروسز دیکھیں",
     miniNote: "سری نگر بیسڈ • لوکل اور آؤٹ اسٹیشن ٹرپس دستیاب",
     trustTitle: "مسافر یہاں خود کو آرام دہ کیوں محسوس کرتے ہیں",
-    trustDescription:
-      "یہ اُن لوگوں کے لیے ہے جو صاف بات چیت، مقامی مدد اور پرسکون سفر چاہتے ہیں۔",
+    trustDescription: "یہ اُن لوگوں کے لیے ہے جو صاف بات چیت، مقامی مدد اور پرسکون سفر چاہتے ہیں۔",
     routesTitle: "مقبول راستے اور ٹرپ آئیڈیاز",
     routesDescription:
       "موجودہ پوسٹرز اور دستیاب معلومات کی بنیاد پر ابتدائی فہرست، جسے بعد میں مزید بہتر بنایا جا سکتا ہے۔",
@@ -171,7 +180,8 @@ export const translations = {
     languagesTitle: "زبان کی سہولت",
     languagesDescription:
       "اہم معلومات کے لیے زبان کے بٹن استعمال کریں اور پورے صفحے کے لیے Google Translate سے مدد لیں۔",
-    footerTagline: "دوستانہ کشمیری سفر، ایسے مقامی لوگوں کے ساتھ جو منزل کے ساتھ سفر کی بھی پوری فکر کرتے ہیں۔",
+    footerTagline:
+      "دوستانہ کشمیری سفر، ایسے مقامی لوگوں کے ساتھ جو منزل کے ساتھ سفر کی بھی پوری فکر کرتے ہیں۔",
     footerNote:
       "Al Madaan Ventures اس وقت دو ٹیکسیوں کے ساتھ کام کر رہا ہے اور آرام، دیانت داری اور مقامی رہنمائی پر توجہ دیتا ہے۔",
     destinations,

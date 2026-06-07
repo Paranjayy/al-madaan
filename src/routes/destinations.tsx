@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteLayout } from "@/components/site-layout";
 import { destinationCards } from "@/lib/site-content";
@@ -46,9 +46,23 @@ function DestinationsPage() {
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               {destinationCards.map((card) => (
-                <article key={card.name} className="destination-card">
-                  <h2 className="text-xl font-semibold text-foreground">{card.name}</h2>
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">{card.description}</p>
+                <article
+                  key={card.name}
+                  className="destination-card flex flex-col justify-between min-h-[160px]"
+                >
+                  <div>
+                    <h2 className="text-xl font-semibold text-foreground">{card.name}</h2>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                      {card.description}
+                    </p>
+                  </div>
+                  <div className="mt-4">
+                    <Link to="/destinations/$slug" params={{ slug: card.slug }}>
+                      <span className="text-xs font-bold text-primary hover:underline cursor-pointer">
+                        View Details →
+                      </span>
+                    </Link>
+                  </div>
                 </article>
               ))}
             </div>

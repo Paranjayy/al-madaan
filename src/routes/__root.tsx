@@ -89,11 +89,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Al Madaan Ventures" },
       { name: "twitter:title", content: "Al Madaan Ventures" },
-      { name: "description", content: "Kashmir Taxi Tours offers a user-friendly website for exploring and booking taxi services in Kashmir." },
-      { property: "og:description", content: "Kashmir Taxi Tours offers a user-friendly website for exploring and booking taxi services in Kashmir." },
-      { name: "twitter:description", content: "Kashmir Taxi Tours offers a user-friendly website for exploring and booking taxi services in Kashmir." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1361c6a2-fa7a-4752-9982-613cbd6554a9/id-preview-4d79ae26--0d29ba91-dd94-4615-9ea6-30e4b846088f.lovable.app-1780497209142.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1361c6a2-fa7a-4752-9982-613cbd6554a9/id-preview-4d79ae26--0d29ba91-dd94-4615-9ea6-30e4b846088f.lovable.app-1780497209142.png" },
+      {
+        name: "description",
+        content:
+          "Kashmir Taxi Tours offers a user-friendly website for exploring and booking taxi services in Kashmir.",
+      },
+      {
+        property: "og:description",
+        content:
+          "Kashmir Taxi Tours offers a user-friendly website for exploring and booking taxi services in Kashmir.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Kashmir Taxi Tours offers a user-friendly website for exploring and booking taxi services in Kashmir.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1361c6a2-fa7a-4752-9982-613cbd6554a9/id-preview-4d79ae26--0d29ba91-dd94-4615-9ea6-30e4b846088f.lovable.app-1780497209142.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1361c6a2-fa7a-4752-9982-613cbd6554a9/id-preview-4d79ae26--0d29ba91-dd94-4615-9ea6-30e4b846088f.lovable.app-1780497209142.png",
+      },
     ],
     links: [
       {

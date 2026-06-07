@@ -15,6 +15,8 @@ import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
+import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -46,31 +48,47 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PackagesSlugRoute = PackagesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => PackagesRoute,
+} as any)
+const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DestinationsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRoute
-  '/packages': typeof PackagesRoute
+  '/destinations': typeof DestinationsRouteWithChildren
+  '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRoute
-  '/packages': typeof PackagesRoute
+  '/destinations': typeof DestinationsRouteWithChildren
+  '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/destinations': typeof DestinationsRoute
-  '/packages': typeof PackagesRoute
+  '/destinations': typeof DestinationsRouteWithChildren
+  '/packages': typeof PackagesRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/packages/$slug': typeof PackagesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +99,8 @@ export interface FileRouteTypes {
     | '/packages'
     | '/services'
     | '/sitemap.xml'
+    | '/destinations/$slug'
+    | '/packages/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +109,8 @@ export interface FileRouteTypes {
     | '/packages'
     | '/services'
     | '/sitemap.xml'
+    | '/destinations/$slug'
+    | '/packages/$slug'
   id:
     | '__root__'
     | '/'
@@ -97,13 +119,15 @@ export interface FileRouteTypes {
     | '/packages'
     | '/services'
     | '/sitemap.xml'
+    | '/destinations/$slug'
+    | '/packages/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  DestinationsRoute: typeof DestinationsRoute
-  PackagesRoute: typeof PackagesRoute
+  DestinationsRoute: typeof DestinationsRouteWithChildren
+  PackagesRoute: typeof PackagesRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -152,14 +176,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/packages/$slug': {
+      id: '/packages/$slug'
+      path: '/$slug'
+      fullPath: '/packages/$slug'
+      preLoaderRoute: typeof PackagesSlugRouteImport
+      parentRoute: typeof PackagesRoute
+    }
+    '/destinations/$slug': {
+      id: '/destinations/$slug'
+      path: '/$slug'
+      fullPath: '/destinations/$slug'
+      preLoaderRoute: typeof DestinationsSlugRouteImport
+      parentRoute: typeof DestinationsRoute
+    }
   }
 }
+
+interface DestinationsRouteChildren {
+  DestinationsSlugRoute: typeof DestinationsSlugRoute
+}
+
+const DestinationsRouteChildren: DestinationsRouteChildren = {
+  DestinationsSlugRoute: DestinationsSlugRoute,
+}
+
+const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
+  DestinationsRouteChildren,
+)
+
+interface PackagesRouteChildren {
+  PackagesSlugRoute: typeof PackagesSlugRoute
+}
+
+const PackagesRouteChildren: PackagesRouteChildren = {
+  PackagesSlugRoute: PackagesSlugRoute,
+}
+
+const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
+  PackagesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  DestinationsRoute: DestinationsRoute,
-  PackagesRoute: PackagesRoute,
+  DestinationsRoute: DestinationsRouteWithChildren,
+  PackagesRoute: PackagesRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

@@ -22,9 +22,14 @@ const kashmirDestinations: Record<string, LocationData> = {
     distance: "0 km (Center)",
     time: "Hub Base",
     season: "All seasons (Charming Houseboats & Shrines)",
-    attractions: ["Dal Lake Shikara Ride", "Mughal Gardens (Shalimar & Nishat)", "Shankaracharya Temple", "Hazratbal Shrine & Soura"],
+    attractions: [
+      "Dal Lake Shikara Ride",
+      "Mughal Gardens (Shalimar & Nishat)",
+      "Shankaracharya Temple",
+      "Hazratbal Shrine & Soura",
+    ],
     price: "₹900 - ₹2,500 (Local Sightseeing)",
-    details: "The heart of Kashmir Valley. Base camp for all sightseeing and transfers."
+    details: "The heart of Kashmir Valley. Base camp for all sightseeing and transfers.",
   },
   gulmarg: {
     title: "Gulmarg Valley",
@@ -33,9 +38,13 @@ const kashmirDestinations: Record<string, LocationData> = {
     distance: "52 km from Srinagar",
     time: "Approx. 2 Hours",
     season: "December to March (Winter Snow & Skiing)",
-    attractions: ["Gondola Cable Car Ride", "Snow activities & snowboarding", "Scenic Alpine Meadows"],
+    attractions: [
+      "Gondola Cable Car Ride",
+      "Snow activities & snowboarding",
+      "Scenic Alpine Meadows",
+    ],
     price: "₹2,500 - ₹2,800",
-    details: "Ski destination famous for the highest operating cable car in the world."
+    details: "Ski destination famous for the highest operating cable car in the world.",
   },
   sonmarg: {
     title: "Sonmarg Glacier",
@@ -46,18 +55,22 @@ const kashmirDestinations: Record<string, LocationData> = {
     season: "April to October (Glaciers & Meadows)",
     attractions: ["Thajiwas Glacier pony ride", "Zero Point snow slopes", "Sindh River viewpoints"],
     price: "₹2,800 - ₹3,200",
-    details: "The 'Meadow of Gold' offering majestic glacier treks and river trails."
+    details: "The 'Meadow of Gold' offering majestic glacier treks and river trails.",
   },
   pahalgam: {
     title: "Pahalgam Valley",
     lat: 34.0161,
-    lng: 75.3150,
+    lng: 75.315,
     distance: "95 km from Srinagar",
     time: "Approx. 2.5 - 3 Hours",
     season: "All Year (Stunning rivers & valleys)",
-    attractions: ["Betaab Valley & Aru Valley", "Chandanwari snow bridge", "River Lidder scenic spots"],
+    attractions: [
+      "Betaab Valley & Aru Valley",
+      "Chandanwari snow bridge",
+      "River Lidder scenic spots",
+    ],
     price: "₹3,000 - ₹3,500",
-    details: "Lush valley bordered by conifer forests and the rushing Lidder river."
+    details: "Lush valley bordered by conifer forests and the rushing Lidder river.",
   },
   yusmarg: {
     title: "Yusmarg Forest Meadow",
@@ -66,9 +79,13 @@ const kashmirDestinations: Record<string, LocationData> = {
     distance: "47 km from Srinagar",
     time: "Approx. 1.8 Hours",
     season: "May to September (Offbeat, peaceful meadows)",
-    attractions: ["Nilnag Lake forest trek", "Doodh Ganga river trail", "Pristine horse-riding routes"],
+    attractions: [
+      "Nilnag Lake forest trek",
+      "Doodh Ganga river trail",
+      "Pristine horse-riding routes",
+    ],
     price: "₹2,400 - ₹2,700",
-    details: "A tranquil offbeat destination surrounded by pine peaks and meadows."
+    details: "A tranquil offbeat destination surrounded by pine peaks and meadows.",
   },
   doodhpathri: {
     title: "Doodhpathri (Meadow of Milk)",
@@ -79,7 +96,7 @@ const kashmirDestinations: Record<string, LocationData> = {
     season: "May to October (Cascading fresh streams)",
     attractions: ["Shaliganga river rapids", "Rolling green hillocks", "Unspoiled nature walks"],
     price: "₹2,300 - ₹2,600",
-    details: "A pristine landscape of green hills and rushing milky rapids."
+    details: "A pristine landscape of green hills and rushing milky rapids.",
   },
   martand: {
     title: "Martand Sun Temple",
@@ -88,16 +105,21 @@ const kashmirDestinations: Record<string, LocationData> = {
     distance: "64 km from Srinagar",
     time: "Approx. 1.8 Hours",
     season: "All Year (Historical & Archeological heritage)",
-    attractions: ["8th Century Archeological Ruins", "Pandav Lari structures", "Scenic view of Anantnag valley"],
+    attractions: [
+      "8th Century Archeological Ruins",
+      "Pandav Lari structures",
+      "Scenic view of Anantnag valley",
+    ],
     price: "₹2,500 - ₹3,000",
-    details: "Ancient heritage site dedicated to the Sun God, built by King Lalitaditya."
-  }
+    details: "Ancient heritage site dedicated to the Sun God, built by King Lalitaditya.",
+  },
 };
 
 export function KashmirMap() {
   const [selectedLoc, setSelectedLoc] = useState<string>("srinagar");
   const [isClient, setIsClient] = useState(false);
-  const mapRef = useRef<any>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const leafletMapInstance = useRef<any>(null);
 
   // Set isClient to true when component mounts on browser
@@ -132,13 +154,17 @@ export function KashmirMap() {
 
         // Use free OpenStreetMap tiles
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }).addTo(map);
 
         leafletMapInstance.current = map;
 
         // Draw routes from Srinagar to destinations
-        const srinagarCoords = [kashmirDestinations.srinagar.lat, kashmirDestinations.srinagar.lng] as [number, number];
+        const srinagarCoords = [
+          kashmirDestinations.srinagar.lat,
+          kashmirDestinations.srinagar.lng,
+        ] as [number, number];
 
         // Add Markers and Draw Routes
         Object.entries(kashmirDestinations).forEach(([key, value]) => {
@@ -204,23 +230,31 @@ export function KashmirMap() {
       {/* Leaflet Map Card */}
       <div className="surface-card p-4 flex flex-col justify-between min-h-[400px]">
         {isClient ? (
-          <div ref={mapRef} className="w-full h-[350px] sm:h-[450px] rounded-xl overflow-hidden border border-border/60 z-10" />
+          <div
+            ref={mapRef}
+            className="w-full h-[350px] sm:h-[450px] rounded-xl overflow-hidden border border-border/60 z-10"
+          />
         ) : (
           <div className="w-full h-[450px] bg-panel rounded-xl flex items-center justify-center border border-border/60">
-            <span className="text-sm text-muted-foreground">Loading Kashmir Interactive Map...</span>
+            <span className="text-sm text-muted-foreground">
+              Loading Kashmir Interactive Map...
+            </span>
           </div>
         )}
-        
+
         {/* Map Legend */}
         <div className="flex flex-wrap justify-center gap-4 mt-3 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#0f3d30] inline-block"></span> Srinagar Central Hub
+            <span className="w-2.5 h-2.5 rounded-full bg-[#0f3d30] inline-block"></span> Srinagar
+            Central Hub
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-accent inline-block"></span> Tourist Destinations
+            <span className="w-2.5 h-2.5 rounded-full bg-accent inline-block"></span> Tourist
+            Destinations
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-5 border-b-2 border-dashed border-primary inline-block"></span> Scenic Cab Route
+            <span className="w-5 border-b-2 border-dashed border-primary inline-block"></span>{" "}
+            Scenic Cab Route
           </span>
         </div>
       </div>
@@ -232,7 +266,8 @@ export function KashmirMap() {
             <Navigation className="h-12 w-12 text-primary mx-auto animate-pulse" />
             <h3 className="text-xl font-semibold text-foreground">Explore Kashmir Routes</h3>
             <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-              Click on any marker on the map to explore travel times, tourist highlights, and directions.
+              Click on any marker on the map to explore travel times, tourist highlights, and
+              directions.
             </p>
           </div>
         ) : (
@@ -243,26 +278,38 @@ export function KashmirMap() {
               </span>
               <h3 className="text-2xl font-bold text-foreground">{activeData.title}</h3>
               <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1 font-semibold">
-                <Clock className="h-3.5 w-3.5 text-accent-strong" /> Travel Duration: {activeData.time}
+                <Clock className="h-3.5 w-3.5 text-accent-strong" /> Travel Duration:{" "}
+                {activeData.time}
               </p>
             </div>
 
             <div className="space-y-4">
               <div>
-                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">Description</span>
-                <p className="text-xs leading-relaxed text-muted-foreground mt-0.5">{activeData.details}</p>
+                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
+                  Description
+                </span>
+                <p className="text-xs leading-relaxed text-muted-foreground mt-0.5">
+                  {activeData.details}
+                </p>
               </div>
 
               <div>
-                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">Best Season</span>
+                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
+                  Best Season
+                </span>
                 <p className="text-sm font-semibold text-foreground mt-0.5">{activeData.season}</p>
               </div>
 
               <div>
-                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">Top Attractions</span>
+                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
+                  Top Attractions
+                </span>
                 <ul className="grid grid-cols-1 gap-1.5 mt-2">
                   {activeData.attractions.map((att) => (
-                    <li key={att} className="text-xs flex items-center gap-2 text-muted-foreground font-medium">
+                    <li
+                      key={att}
+                      className="text-xs flex items-center gap-2 text-muted-foreground font-medium"
+                    >
                       <MapPin className="h-3.5 w-3.5 text-accent-strong shrink-0" />
                       {att}
                     </li>
@@ -271,15 +318,19 @@ export function KashmirMap() {
               </div>
 
               <div className="rounded-xl bg-card border border-border/80 p-3.5">
-                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase block">Estimated Cab Fare</span>
-                <p className="text-lg font-bold text-accent-strong-foreground mt-0.5">{activeData.price}</p>
+                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase block">
+                  Estimated Cab Fare
+                </span>
+                <p className="text-lg font-bold text-accent-strong-foreground mt-0.5">
+                  {activeData.price}
+                </p>
               </div>
             </div>
 
             <div className="grid gap-2 pt-2 sm:grid-cols-2">
-              <a 
-                href={handleBook(activeData.title.split(" ")[0])} 
-                target="_blank" 
+              <a
+                href={handleBook(activeData.title.split(" ")[0])}
+                target="_blank"
                 rel="noreferrer"
                 className="w-full inline-block"
               >
@@ -289,13 +340,16 @@ export function KashmirMap() {
                 </Button>
               </a>
 
-              <a 
-                href={getGmapLink(activeData.lat, activeData.lng, activeData.title)} 
-                target="_blank" 
+              <a
+                href={getGmapLink(activeData.lat, activeData.lng, activeData.title)}
+                target="_blank"
                 rel="noreferrer"
                 className="w-full inline-block"
               >
-                <Button variant="outline" className="w-full text-xs font-semibold py-2 flex items-center justify-center gap-1.5 border border-border text-foreground hover:bg-panel">
+                <Button
+                  variant="outline"
+                  className="w-full text-xs font-semibold py-2 flex items-center justify-center gap-1.5 border border-border text-foreground hover:bg-panel"
+                >
                   <ExternalLink className="h-4 w-4 text-primary" />
                   Google Maps Directions
                 </Button>

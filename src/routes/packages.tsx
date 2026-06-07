@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const packages = [
   {
+    slug: "srinagar-express",
     name: "Srinagar Express",
     days: "1 day",
     people: "1-4 pax",
@@ -13,13 +14,20 @@ const packages = [
     note: "Perfect first-day intro for new visitors.",
   },
   {
+    slug: "gulmarg-snow-day",
     name: "Gulmarg Snow Day",
     days: "1 day",
     people: "1-4 pax",
-    highlights: ["Srinagar → Gulmarg drive", "Gondola access support", "Meadow & snow stops", "Return by evening"],
+    highlights: [
+      "Srinagar → Gulmarg drive",
+      "Gondola access support",
+      "Meadow & snow stops",
+      "Return by evening",
+    ],
     note: "Carry warm clothes; best Nov–March.",
   },
   {
+    slug: "pahalgam-valley",
     name: "Pahalgam Valley",
     days: "1 day",
     people: "1-4 pax",
@@ -27,6 +35,7 @@ const packages = [
     note: "Most relaxed & nature-heavy route.",
   },
   {
+    slug: "classic-kashmir",
     name: "Classic Kashmir 4N/5D",
     days: "5 days",
     people: "Family friendly",
@@ -67,7 +76,8 @@ function PackagesPage() {
             Ready-made Kashmir itineraries you can tweak in one message.
           </h1>
           <p className="text-lg leading-8 text-muted-foreground">
-            Sample plans based on what tourists ask for most. Tap any package and message us — we'll adjust dates, hotels, and pace to fit your group.
+            Sample plans based on what tourists ask for most. Tap any package and message us — we'll
+            adjust dates, hotels, and pace to fit your group.
           </p>
         </div>
 
@@ -98,11 +108,22 @@ function PackagesPage() {
                   ))}
                 </ul>
                 <p className="text-sm italic text-muted-foreground">{p.note}</p>
-                <a href={`https://wa.me/91917006109912?text=${msg}`} target="_blank" rel="noreferrer">
-                  <Button variant="hero" size="sm">
-                    Enquire on WhatsApp
-                  </Button>
-                </a>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href={`https://wa.me/91917006109912?text=${msg}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button variant="hero" size="sm">
+                      Enquire on WhatsApp
+                    </Button>
+                  </a>
+                  <Link to="/packages/$slug" params={{ slug: p.slug }}>
+                    <Button variant="outline" size="sm" className="border-border text-foreground">
+                      View Itinerary
+                    </Button>
+                  </Link>
+                </div>
               </article>
             );
           })}
