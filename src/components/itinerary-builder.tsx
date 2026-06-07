@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from "sonner";
 import {
   MapPin,
   MessageCircle,
@@ -45,18 +46,29 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
   }, []);
 
   const toggle = (slug: string) => {
+    const dest = allDestinations.find((d) => d.slug === slug);
+    const name = dest ? dest.name : slug;
     setSelected((prev) => {
-      const next = prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug];
+      const isAdding = !prev.includes(slug);
+      const next = isAdding ? [...prev, slug] : prev.filter((s) => s !== slug);
       saveToStorage(next);
-      if (next.length > 0 && !open) setOpen(true);
+      if (isAdding) {
+        toast.success(`Added ${name} to your custom trip!`);
+        if (!open) setOpen(true);
+      } else {
+        toast.info(`Removed ${name} from your custom trip.`);
+      }
       return next;
     });
   };
 
   const remove = (slug: string) => {
+    const dest = allDestinations.find((d) => d.slug === slug);
+    const name = dest ? dest.name : slug;
     setSelected((prev) => {
       const next = prev.filter((s) => s !== slug);
       saveToStorage(next);
+      toast.info(`Removed ${name} from your custom trip.`);
       return next;
     });
   };
@@ -64,6 +76,7 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
   const clear = () => {
     setSelected([]);
     saveToStorage([]);
+    toast.error("Cleared your custom trip itinerary.");
   };
 
   const selectedDests = selected
@@ -365,9 +378,16 @@ export function useItinerary() {
 
   const toggle = (slug: string) => {
     setSelected((prev) => {
-      const next = prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug];
+      const isAdding = !prev.includes(slug);
+      const next = isAdding ? [...prev, slug] : prev.filter((s) => s !== slug);
       saveToStorage(next);
       window.dispatchEvent(new Event("almadaan:itinerary"));
+      const name = slug.charAt(0).toUpperCase() + slug.slice(1);
+      if (isAdding) {
+        toast.success(`Added ${name} to your custom trip!`);
+      } else {
+        toast.info(`Removed ${name} from your custom trip.`);
+      }
       return next;
     });
   };

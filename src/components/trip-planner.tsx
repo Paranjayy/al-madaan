@@ -1,5 +1,6 @@
 import { MessageCircle, Mail, Plus, Minus, MapPin, Clock, Car } from "lucide-react";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 
@@ -225,13 +226,23 @@ export function TripPlanner() {
 
       {/* Actions */}
       <div className="flex flex-wrap gap-3">
-        <a href={waUrl} target="_blank" rel="noreferrer" className="inline-block">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block"
+          onClick={() => toast.success("Opening WhatsApp with your customized Kashmir route plan!")}
+        >
           <Button variant="hero" size="lg">
             <MessageCircle className="h-5 w-5" />
             Send on WhatsApp
           </Button>
         </a>
-        <a href={emailUrl} className="inline-block">
+        <a
+          href={emailUrl}
+          className="inline-block"
+          onClick={() => toast.success("Opening your email client to send booking inquiry!")}
+        >
           <Button variant="pill" size="lg">
             <Mail className="h-4 w-4" />
             Send Email

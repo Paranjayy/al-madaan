@@ -11,6 +11,7 @@ import {
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+import { TravelerDashboard } from "@/components/traveler-dashboard";
 
 export const Route = createFileRoute("/guide")({
   head: () => ({
@@ -432,6 +433,20 @@ function GuidePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      {/* Traveler & Driver Companion Console */}
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="mb-10 space-y-2">
+          <p className="section-kicker">Companion Console</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Traveler &amp; Driver Live Hub
+          </h2>
+          <p className="text-base text-muted-foreground max-w-2xl">
+            Live mountain pass reports, luggage capacity calculator, driver board, and emergency helplines.
+          </p>
+        </div>
+        <TravelerDashboard />
       </section>
 
       {/* Interactive Checklist Widget */}
