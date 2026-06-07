@@ -8,9 +8,7 @@ export function ThemeToggle() {
   useEffect(() => {
     // Determine initial theme on mount
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+    const initialTheme = savedTheme || "light";
     setTheme(initialTheme);
 
     if (initialTheme === "dark") {

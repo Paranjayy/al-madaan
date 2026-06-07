@@ -7,6 +7,7 @@ import {
   ChevronUp,
   ChevronDown,
   Trash2,
+  FileDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Destination } from "@/lib/destinations-data";
@@ -73,6 +74,121 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
   const totalMaxFare = selectedDests.reduce((acc, d) => acc + d.priceMax, 0);
   const totalKm = selectedDests.reduce((acc, d) => acc + d.distanceKm, 0);
   const estimatedDays = Math.max(1, Math.ceil(selectedDests.length / 2));
+
+  const handlePrint = () => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
+
+    const itemsHtml = selectedDests
+      .map(
+        (dest, i) => `
+      <tr style="border-bottom: 1px solid #ddd;">
+        <td style="padding: 12px; font-weight: bold; font-size: 14px;">${i + 1}. ${dest.name}</td>
+        <td style="padding: 12px; font-size: 13px; color: #555;">${dest.distance}</td>
+        <td style="padding: 12px; font-size: 13px; color: #555;">${dest.time}</td>
+        <td style="padding: 12px; font-size: 13px; color: #555;">${dest.highlights.slice(0, 3).join(", ")}</td>
+        <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #1e3a1e; text-align: right;">${dest.price}</td>
+      </tr>
+    `
+      )
+      .join("");
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Custom Kashmir Itinerary — Al Madaan Ventures</title>
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #333; padding: 40px; line-height: 1.5; background: #fff; }
+            .header { border-bottom: 2px solid #285a43; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+            .logo-title { font-size: 24px; font-weight: 800; color: #285a43; letter-spacing: 1px; }
+            .title { font-size: 28px; font-weight: 800; margin-bottom: 10px; color: #111; }
+            .meta-grid { display: grid; grid-template-cols: repeat(3, 1fr); gap: 20px; background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 12px; padding: 16px; margin-bottom: 30px; }
+            .meta-item { font-size: 11px; font-weight: 700; color: #166534; text-transform: uppercase; letter-spacing: 0.5px; }
+            .meta-val { font-size: 18px; font-weight: 800; color: #14532d; margin-top: 4px; }
+            table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+            th { background: #285a43; color: white; padding: 12px; text-align: left; font-size: 13px; font-weight: 600; }
+            .footer { border-top: 1px solid #eee; padding-top: 20px; font-size: 11px; color: #777; text-align: center; margin-top: 50px; }
+            .driver-card { background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 12px; padding: 16px; display: flex; gap: 20px; margin-bottom: 20px; }
+            .btn-print { background: #285a43; color: white; border: none; padding: 12px 24px; font-size: 14px; font-weight: bold; border-radius: 99px; cursor: pointer; display: block; margin: 0 auto 30px auto; box-shadow: 0 4px 12px rgba(40, 90, 67, 0.2); transition: transform 0.2s; }
+            .btn-print:hover { transform: scale(1.02); }
+            @media print {
+              .btn-print { display: none; }
+              body { padding: 0; }
+            }
+          </style>
+        </head>
+        <body>
+          <button class="btn-print" onclick="window.print()">🖨️ Save as PDF / Print Itinerary</button>
+          
+          <div class="header">
+            <div>
+              <div class="logo-title">AL MADAAN VENTURES</div>
+              <div style="font-size: 12px; color: #666; margin-top: 4px;">Kashmir taxi & local travel support</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #666; line-height: 1.6;">
+              <div>WhatsApp Support: +91 70061 09912</div>
+              <div>Instagram: @al_madaan</div>
+            </div>
+          </div>
+
+          <h1 class="title">Your Custom Kashmir Tour</h1>
+          <p style="font-size: 14px; color: #666; margin-bottom: 30px;">
+            Here is your custom-built travel plan for exploring Jammu & Kashmir. Hand over this copy to your driver or use it to plan with our travel companions.
+          </p>
+
+          <div class="meta-grid">
+            <div class="meta-item">ESTIMATED TOUR DURATION<div class="meta-val">${estimatedDays} Days</div></div>
+            <div class="meta-item">TOTAL ROUTE MILEAGE<div class="meta-val">~${totalKm} Kilometers</div></div>
+            <div class="meta-item">TOTAL CAB BUDGET<div class="meta-val">₹${totalMinFare.toLocaleString()} - ₹${totalMaxFare.toLocaleString()}</div></div>
+          </div>
+
+          <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: #111;">Route Breakdown & Details</h2>
+          <table>
+            <thead>
+              <tr>
+                <th style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">DESTINATION</th>
+                <th>DISTANCE FROM HUB</th>
+                <th>TRAVEL TIME</th>
+                <th>TOP ATTRACTIONS</th>
+                <th style="border-top-right-radius: 8px; border-bottom-right-radius: 8px; text-align: right; padding-right: 12px;">EST. CAB FARE</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${itemsHtml}
+            </tbody>
+          </table>
+
+          <div style="display: grid; grid-template-cols: 1.1fr 0.9fr; gap: 30px; margin-top: 40px;">
+            <div>
+              <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #111;">Travel Rules & Exclusions:</h3>
+              <ul style="font-size: 12px; color: #666; padding-left: 16px; margin: 0; line-height: 1.8;">
+                <li>Local sightseeing inside Sonmarg (Zero Point) and Pahalgam (Aru/Betaab) requires local union cabs.</li>
+                <li>Tolls, entry tickets, and parking fees are extra.</li>
+                <li>Ensure you carry a Postpaid SIM card. Prepaid cards outside of J&K will not have connectivity.</li>
+                <li>Carry cash for horse rides and local vendors as UPI connection is patchy in mountains.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #111;">Driver Details & Support:</h3>
+              <div class="driver-card">
+                <div>
+                  <div style="font-weight: bold; font-size: 14px; color: #111;">Aalim / Umair</div>
+                  <div style="font-size: 11px; color: #666; margin-top: 4px;">Toyota Dzire (4 guests) & Innova (7 guests) available</div>
+                  <div style="font-size: 12px; font-weight: 700; color: #285a43; margin-top: 10px;">WhatsApp booking: +91 70061 09912</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <p>Thank you for choosing Al Madaan Ventures. We ride for the love of Kashmir!</p>
+            <p style="margin-top: 5px; color: #999;">Itinerary created on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}. Estimates subject to local traffic & seasonal union cab regulations.</p>
+          </div>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+  };
 
   const waMessage =
     selected.length === 0
@@ -212,6 +328,14 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
                     Send Itinerary on WhatsApp
                   </Button>
                 </a>
+                <button
+                  type="button"
+                  onClick={handlePrint}
+                  className="w-full flex items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground transition hover:bg-panel active:scale-95 cursor-pointer"
+                >
+                  <FileDown className="h-4 w-4 text-primary" />
+                  Download PDF Itinerary
+                </button>
                 <p className="text-center text-[11px] text-muted-foreground">
                   ₹{totalMinFare.toLocaleString()} – ₹{totalMaxFare.toLocaleString()} estimated •
                   Confirm prices with driver
