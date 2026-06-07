@@ -313,3 +313,12 @@ ID: bom1::5mxkn-1780818452105-e0d745ce21b9
 Read our documentation to learn more about this error.
 
 # prompt 7
+
+- also read previous entire chat and every instructions and things if u need to ig dawg
+- i would give you their data and things when they give me ig else we wouuld handover them at current state or better ui/ux and feature rich state to them ig idk dawg!
+- also non first timer or any guide or checklist/tasklist/jotted cool things ig and more cooler things dawg
+- i am unable to find wall of tour/package inside multiple tour agencies or things they had red wall with multiple places to visit which was cool but likewise we can have itineary and destinations with its images and distance from current location or particular location and itineary and more robust cool features and things ig idk dawg
+- and maybe too compplex or db requirement currently we got moving parts so idk how we can or feasible or not but availablity of drivers/cars or bookings later and add more robust things ig
+- still same vercel issue ig
+
+# prompt 8

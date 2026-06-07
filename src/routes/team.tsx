@@ -1,8 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Car, Globe2, MessageCircle, Star, Users, Luggage, Wind, ShieldCheck } from "lucide-react";
+import {
+  Car,
+  Globe2,
+  MessageCircle,
+  Star,
+  Users,
+  Luggage,
+  Wind,
+  ShieldCheck,
+  CheckCircle2,
+  Clock,
+} from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+import { driverStatus } from "@/lib/driver-status";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -161,77 +173,107 @@ function TeamPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          {drivers.map((driver) => (
-            <article key={driver.id} className="service-card space-y-6">
-              {/* Header */}
-              <div className="flex items-start gap-5">
-                <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-accent text-4xl shadow-soft">
-                  {driver.emoji}
+          {drivers.map((driver) => {
+            const status = driverStatus[driver.id];
+            return (
+              <article key={driver.id} className="service-card space-y-6">
+                {/* Header */}
+                <div className="flex items-start gap-5">
+                  <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-accent text-4xl shadow-soft">
+                    {driver.emoji}
+                  </div>
+                  <div className="space-y-1 flex-1">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <h3 className="text-2xl font-bold text-foreground">{driver.name}</h3>
+                        <p className="text-sm font-semibold text-primary">{driver.role}</p>
+                      </div>
+                      {status && (
+                        <div
+                          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                            status.available
+                              ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20"
+                              : "bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20"
+                          }`}
+                        >
+                          <span
+                            className={`h-2.5 w-2.5 rounded-full ${
+                              status.available ? "bg-emerald-500 animate-pulse" : "bg-amber-500"
+                            }`}
+                          />
+                          {status.available
+                            ? "Available Now"
+                            : `On Trip: ${status.currentTrip || "Outstation"}`}
+                        </div>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground flex items-center gap-1.5 mt-1">
+                      <Car className="h-3.5 w-3.5 text-primary" />
+                      {driver.vehicle}
+                    </p>
+                    {status && !status.available && status.nextAvailable && (
+                      <p className="text-[11px] text-amber-700 dark:text-amber-300 flex items-center gap-1 mt-1 font-medium bg-amber-500/5 px-2 py-0.5 rounded border border-amber-500/10 w-fit">
+                        <Clock className="h-3.5 w-3.5" /> Next Available: {status.nextAvailable}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-foreground">{driver.name}</h3>
-                  <p className="text-sm font-semibold text-primary">{driver.role}</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                    <Car className="h-3.5 w-3.5 text-primary" />
-                    {driver.vehicle}
+
+                {/* Bio */}
+                <p className="text-sm leading-7 text-muted-foreground">{driver.bio}</p>
+
+                {/* Languages */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                    <Globe2 className="h-3.5 w-3.5 text-primary" />
+                    Languages spoken
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {driver.languages.map((lang) => (
+                      <span
+                        key={lang}
+                        className="rounded-full border border-border/70 bg-panel px-3 py-1 text-xs font-medium text-foreground"
+                      >
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Bio */}
-              <p className="text-sm leading-7 text-muted-foreground">{driver.bio}</p>
-
-              {/* Languages */}
-              <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                  <Globe2 className="h-3.5 w-3.5 text-primary" />
-                  Languages spoken
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {driver.languages.map((lang) => (
-                    <span
-                      key={lang}
-                      className="rounded-full border border-border/70 bg-panel px-3 py-1 text-xs font-medium text-foreground"
-                    >
-                      {lang}
-                    </span>
-                  ))}
+                {/* Specialties */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Specialties
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {driver.specialties.map((spec) => (
+                      <span
+                        key={spec}
+                        className="rounded-full bg-accent/60 px-3 py-1 text-xs font-medium text-accent-foreground"
+                      >
+                        {spec}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Specialties */}
-              <div className="space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Specialties
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {driver.specialties.map((spec) => (
-                    <span
-                      key={spec}
-                      className="rounded-full bg-accent/60 px-3 py-1 text-xs font-medium text-accent-foreground"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+                {/* Actions */}
+                <div className="flex flex-wrap gap-3 pt-2 border-t border-border/60">
+                  <a href={driver.whatsapp} target="_blank" rel="noreferrer">
+                    <Button variant="hero" size="sm">
+                      <MessageCircle className="h-4 w-4" />
+                      Book with {driver.name}
+                    </Button>
+                  </a>
+                  <a href={driver.instagram} target="_blank" rel="noreferrer">
+                    <Button variant="pill" size="sm">
+                      Instagram →
+                    </Button>
+                  </a>
                 </div>
-              </div>
-
-              {/* Actions */}
-              <div className="flex flex-wrap gap-3 pt-2 border-t border-border/60">
-                <a href={driver.whatsapp} target="_blank" rel="noreferrer">
-                  <Button variant="hero" size="sm">
-                    <MessageCircle className="h-4 w-4" />
-                    Book with {driver.name}
-                  </Button>
-                </a>
-                <a href={driver.instagram} target="_blank" rel="noreferrer">
-                  <Button variant="pill" size="sm">
-                    Instagram →
-                  </Button>
-                </a>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 

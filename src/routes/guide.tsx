@@ -1,5 +1,13 @@
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle } from "lucide-react";
+import {
+  MessageCircle,
+  CheckSquare,
+  Square,
+  RotateCcw,
+  CheckCircle2,
+  AlertCircle,
+} from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -11,7 +19,7 @@ export const Route = createFileRoute("/guide")({
       {
         name: "description",
         content:
-          "Complete Kashmir travel guide — best seasons to visit, what to pack, safety tips, local customs, route planning, and insider advice from local drivers.",
+          "Complete Kashmir travel guide — best seasons to visit, what to pack, safety tips, local customs, route planning, and interactive checklists from local drivers.",
       },
       {
         property: "og:title",
@@ -188,7 +196,182 @@ const firstTimerTips = [
   },
 ];
 
+interface ChecklistItem {
+  id: string;
+  text: string;
+  detail: string;
+}
+
+interface ChecklistSection {
+  title: string;
+  description: string;
+  icon: string;
+  items: ChecklistItem[];
+}
+
+const checklistsData: Record<string, ChecklistSection> = {
+  firstTimer: {
+    title: "First-Timer Essentials",
+    description: "Crucial regulatory, network, and dress code checks before entering Kashmir.",
+    icon: "🎒",
+    items: [
+      {
+        id: "ft-sim",
+        text: "Postpaid SIM Card (Mandatory)",
+        detail:
+          "Prepaid SIM cards from outside J&K do NOT work in Jammu & Kashmir due to security regulations. Verify yours is postpaid or get one at Srinagar airport.",
+      },
+      {
+        id: "ft-cash",
+        text: "Physical Cash (INR)",
+        detail:
+          "Network in remote mountain valleys is patchy, making UPI/cards fail. Keep sufficient cash for small vendors, horse rides, and local guides.",
+      },
+      {
+        id: "ft-maps",
+        text: "Offline Maps Installed",
+        detail:
+          "Download offline maps of Srinagar, Gulmarg, Pahalgam, and Sonmarg on Google Maps or Maps.me before leaving home.",
+      },
+      {
+        id: "ft-clothes",
+        text: "Modest Clothing for Shrines",
+        detail:
+          "Ensure you cover shoulders and knees when visiting Hazratbal shrine or local mosques. A head scarf/rumaal is also helpful.",
+      },
+      {
+        id: "ft-warmth",
+        text: "Light jacket for evenings",
+        detail:
+          "Even in peak summer, Srinagar and mountain stations get breezy and cold after sunset. Keep one layer handy.",
+      },
+    ],
+  },
+  adventure: {
+    title: "Adventure & Offbeat",
+    description:
+      "Gear and planning for local treks, high-altitude spots, and offbeat valley exploration.",
+    icon: "🥾",
+    items: [
+      {
+        id: "adv-shoes",
+        text: "Sturdy Hiking Shoes",
+        detail:
+          "Crucial for walking on rocky terrain in Aru/Betaab valley, Yusmarg meadows, or walking on snow at Gulmarg Phase 2.",
+      },
+      {
+        id: "adv-meds",
+        text: "Motion Sickness Medicines",
+        detail:
+          "Winding mountain roads to Sonamarg or Pahalgam are famous for triggering motion sickness. Carry Avomine or similar meds.",
+      },
+      {
+        id: "adv-union",
+        text: "Local Union Cab Budget",
+        detail:
+          "Outside cabs can only drop you at Srinagar hotels or main stands. You must book local union cabs for sights inside Pahalgam (Aru/Betaab) or Sonamarg (Zero Point).",
+      },
+      {
+        id: "adv-power",
+        text: "Heavy-duty Powerbank",
+        detail:
+          "Cold weather rapidly drains phone batteries, especially when taking high-res photos. Keep a 10,000mAh+ bank handy.",
+      },
+      {
+        id: "adv-water",
+        text: "Hydration Flask",
+        detail:
+          "High-altitude sickness is best fought by drinking water regularly. Carry a reusable water bottle.",
+      },
+    ],
+  },
+  seasonal: {
+    title: "Seasonal Packing",
+    description: "Essential clothing & gear tailored to when you are visiting.",
+    icon: "🧥",
+    items: [
+      {
+        id: "sea-heavy",
+        text: "Winter: Heavy Woolens & Thermals",
+        detail:
+          "For Nov–Feb. High-quality thermals, down jackets, woolen socks, beanies, and gloves are absolute life-savers.",
+      },
+      {
+        id: "sea-boots",
+        text: "Winter: Waterproof Snow Boots",
+        detail:
+          "Highly recommended for walking on snow in Gulmarg. You can rent them at Tangmarg/Gulmarg for around ₹100–200/day.",
+      },
+      {
+        id: "sea-summer",
+        text: "Summer: Cottons & Sun protection",
+        detail:
+          "For Jun–Aug. High altitude sun burns easily. Carry sunscreen (SPF 50+), UV-polarized sunglasses, and light jackets.",
+      },
+      {
+        id: "sea-rain",
+        text: "Autumn/Monsoon: Compact Umbrella",
+        detail:
+          "Weather in the Himalayas changes in minutes. Sudden brief showers can catch you off guard.",
+      },
+      {
+        id: "sea-shopper",
+        text: "Saffron & Walnut Carry Bag",
+        detail:
+          "Leave extra room in your luggage to carry home authentic Kashmiri saffron, walnuts, and almonds!",
+      },
+    ],
+  },
+};
+
 function GuidePage() {
+  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+  const [activeTab, setActiveTab] = useState<"firstTimer" | "adventure" | "seasonal">("firstTimer");
+
+  // Load from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("almadaan-travel-checklists");
+      if (saved) {
+        setCheckedItems(JSON.parse(saved));
+      }
+    } catch (e) {
+      console.error("Error loading checklist state:", e);
+    }
+  }, []);
+
+  // Save to localStorage
+  const toggleItem = (id: string) => {
+    const nextState = { ...checkedItems, [id]: !checkedItems[id] };
+    setCheckedItems(nextState);
+    try {
+      localStorage.setItem("almadaan-travel-checklists", JSON.stringify(nextState));
+    } catch (e) {
+      console.error("Error saving checklist state:", e);
+    }
+  };
+
+  const resetActiveList = () => {
+    const listItems = checklistsData[activeTab].items;
+    const nextState = { ...checkedItems };
+    for (const item of listItems) {
+      nextState[item.id] = false;
+    }
+    setCheckedItems(nextState);
+    try {
+      localStorage.setItem("almadaan-travel-checklists", JSON.stringify(nextState));
+    } catch (e) {
+      console.error("Error saving checklist state:", e);
+    }
+  };
+
+  // Calculations
+  const activeSection = checklistsData[activeTab];
+  const activeItems = activeSection.items;
+  const checkedActiveCount = activeItems.filter((item) => checkedItems[item.id]).length;
+  const progressPercent =
+    activeItems.length > 0 ? Math.round((checkedActiveCount / activeItems.length) * 100) : 0;
+
   return (
     <SiteLayout>
       {/* Hero */}
@@ -248,6 +431,137 @@ function GuidePage() {
               </p>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Interactive Checklist Widget */}
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-border bg-panel p-6 shadow-soft sm:p-10">
+          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+            <div>
+              <p className="section-kicker">Interactive planner</p>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">
+                Travel Prep Checklists
+              </h2>
+              <p className="text-sm text-muted-foreground mt-1">
+                Save your progress in your browser as you prepare for the trip.
+              </p>
+            </div>
+            {checkedActiveCount > 0 && (
+              <button
+                type="button"
+                onClick={resetActiveList}
+                className="flex items-center gap-1.5 self-start rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-destructive hover:text-destructive active:scale-95 sm:self-auto"
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+                Reset List
+              </button>
+            )}
+          </div>
+
+          {/* Navigation Tabs */}
+          <div className="grid grid-cols-3 gap-2 border-b border-border pb-4 mb-6">
+            {(Object.keys(checklistsData) as Array<keyof typeof checklistsData>).map((key) => {
+              const sec = checklistsData[key];
+              const isActive = activeTab === key;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setActiveTab(key)}
+                  className={`flex flex-col items-center gap-1 rounded-xl p-3 text-center transition border ${
+                    isActive
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-transparent bg-transparent text-muted-foreground hover:bg-card hover:text-foreground"
+                  }`}
+                >
+                  <span className="text-2xl">{sec.icon}</span>
+                  <span className="text-xs font-bold leading-tight sm:text-sm">{sec.title}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Alert for Mandatory SIM rules if firstTimer active */}
+          {activeTab === "firstTimer" && (
+            <div className="mb-6 flex gap-3 rounded-xl border border-amber-500/20 bg-amber-500/5 p-4 text-xs text-amber-800 dark:text-amber-300">
+              <AlertCircle className="h-5 w-5 shrink-0 text-amber-500" />
+              <div>
+                <span className="font-bold">Important Network Note: </span>
+                Prepaid SIM cards issued outside Jammu &amp; Kashmir will not have any network
+                signal once you enter Srinagar. Postpaid connection is mandatory to keep in touch
+                with your driver.
+              </div>
+            </div>
+          )}
+
+          {/* Progress Bar */}
+          <div className="mb-6 space-y-2">
+            <div className="flex items-center justify-between text-xs font-semibold">
+              <span className="text-muted-foreground">Preparation Progress</span>
+              <span className="text-primary">
+                {progressPercent}% Completed ({checkedActiveCount}/{activeItems.length})
+              </span>
+            </div>
+            <div className="h-2 w-full rounded-full bg-border overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-primary to-accent-strong transition-all duration-300"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Checklist Item Cards */}
+          <div className="grid gap-3">
+            {activeItems.map((item) => {
+              const isChecked = !!checkedItems[item.id];
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  id={`chk-${item.id}`}
+                  onClick={() => toggleItem(item.id)}
+                  className={`flex items-start gap-4 rounded-xl border p-4 text-left transition ${
+                    isChecked
+                      ? "border-primary/50 bg-primary/5 dark:bg-primary/5/10"
+                      : "border-border/60 bg-card hover:border-primary/40"
+                  }`}
+                >
+                  <span className="mt-0.5 shrink-0">
+                    {isChecked ? (
+                      <CheckSquare className="h-5 w-5 text-primary" />
+                    ) : (
+                      <Square className="h-5 w-5 text-muted-foreground" />
+                    )}
+                  </span>
+                  <div>
+                    <h3
+                      className={`font-semibold text-sm ${isChecked ? "text-primary line-through" : "text-foreground"}`}
+                    >
+                      {item.text}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      {item.detail}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Complete celebration block */}
+          {progressPercent === 100 && (
+            <div className="mt-8 flex flex-col items-center gap-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 p-6 text-center text-emerald-800 dark:text-emerald-300">
+              <CheckCircle2 className="h-8 w-8 text-emerald-500 animate-bounce" />
+              <div>
+                <h4 className="font-bold text-sm">All set for Kashmir! 🏔️</h4>
+                <p className="text-xs mt-1">
+                  You have checked off all the critical preparation items. Send us your custom
+                  itinerary now!
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

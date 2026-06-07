@@ -8,6 +8,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import type { LanguageCode } from "@/lib/site-content";
 import { translations } from "@/lib/site-content";
+import { allDriversBusy } from "@/lib/driver-status";
 
 interface SiteLayoutProps {
   children: ReactNode;
@@ -19,6 +20,14 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {allDriversBusy && (
+        <div className="bg-amber-500/10 border-b border-amber-500/20 py-2.5 px-4 text-center text-xs font-semibold text-amber-800 dark:text-amber-300 flex items-center justify-center gap-2 flex-wrap">
+          <span>⚡ Both Aalim & Umair are currently on trips.</span>
+          <span className="opacity-80">
+            You can still plan your custom itinerary or pre-book for future dates!
+          </span>
+        </div>
+      )}
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
