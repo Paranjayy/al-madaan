@@ -161,8 +161,7 @@
 }
 
 @utility nav-link-active {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
+  @apply bg-primary/10 text-primary font-semibold;
 }
 
 @utility section-kicker {
