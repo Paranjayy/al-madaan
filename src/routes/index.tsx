@@ -15,6 +15,8 @@ import { GoogleTranslateWidget } from "@/components/google-translate";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+import { KashmirMap } from "@/components/kashmir-map";
+import { InstagramGallery } from "@/components/instagram-gallery";
 
 const heroPosterUrl = "/images/al-madaan-poster.png";
 const servicePosterUrl = "/images/taxi-service-poster.png";
@@ -239,65 +241,63 @@ function IndexPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="space-y-5">
-          <p className="section-kicker">{t.routesTitle}</p>
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24" id="map-route">
+        <div className="space-y-6">
+          <div>
+            <p className="section-kicker">{t.routesTitle}</p>
+            <h2 className="max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl mt-1">
               {t.routesDescription}
             </h2>
-            <Link to="/destinations" className="text-sm font-semibold text-primary">
-              Explore all destinations →
-            </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {destinationCards.map((card) => (
-              <article key={card.name} className="destination-card min-h-52">
-                <h3 className="text-xl font-semibold text-foreground">{card.name}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">{card.description}</p>
-              </article>
-            ))}
+          <KashmirMap />
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24" id="instagram">
+        <div className="space-y-8">
+          <div className="text-center space-y-2">
+            <p className="section-kicker">{t.socialTitle}</p>
+            <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">{t.socialDescription}</h2>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              Follow Aalim & Umair's journey in Srinagar, Gulmarg, and Pahalgam. Tap on any post to view live updates on Instagram.
+            </p>
           </div>
+          <InstagramGallery />
         </div>
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-          <article className="info-panel">
+        <div className="grid gap-6 md:grid-cols-2">
+          <article className="info-panel flex flex-col justify-between">
             <div className="space-y-4">
-              <p className="section-kicker">{t.socialTitle}</p>
-              <h2 className="text-3xl font-semibold text-foreground">{t.socialDescription}</h2>
-              <p className="text-base leading-7 text-muted-foreground">
-                See recent visuals, local personality, and destination glimpses on Instagram before
-                booking.
+              <p className="section-kicker">Local Support</p>
+              <h3 className="text-2xl font-bold text-foreground">For Love of Kashmir</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                We design and build this website to connect travelers from all parts of India, Europe, and the world directly to friendly local driver companions.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="https://www.instagram.com/al_madaan" target="_blank" rel="noreferrer">
-                <Button variant="hero">@al_madaan</Button>
-              </a>
               <a href="https://www.instagram.com/sahilhamdani109" target="_blank" rel="noreferrer">
-                <Button variant="pill">@sahilhamdani109</Button>
+                <Button variant="pill">Contact Developer Companion</Button>
               </a>
             </div>
           </article>
 
-          <article className="info-panel">
-            <div className="space-y-4">
+          <article className="info-panel space-y-4">
+            <div className="space-y-2">
               <p className="section-kicker">{t.languagesTitle}</p>
-              <h2 className="text-3xl font-semibold text-foreground">{t.languagesDescription}</h2>
-              <div className="flex items-start gap-3 rounded-[var(--radius-xl)] border border-border/70 bg-card p-4">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground">
-                  <Globe2 className="h-5 w-5" />
-                </span>
-                <p className="text-sm leading-7 text-muted-foreground">
-                  English, Hindi, and Urdu quick-copy support is built in, and Google Translate
-                  helps wider international visitors browse the page more comfortably.
-                </p>
-              </div>
-              <div className="rounded-[var(--radius-xl)] border border-border/70 bg-card p-4">
-                <GoogleTranslateWidget />
-              </div>
+              <h3 className="text-2xl font-bold text-foreground">{t.languagesDescription}</h3>
+            </div>
+            <div className="flex items-start gap-3 rounded-[var(--radius-xl)] border border-border/70 bg-card p-4">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground shrink-0">
+                <Globe2 className="h-5 w-5" />
+              </span>
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                English, Hindi, Kashmiri, and Urdu quick-copy translations are built-in natively at the top-bar. Use the widget below to translate the entire textual page into any other language.
+              </p>
+            </div>
+            <div className="rounded-[var(--radius-xl)] border border-border/70 bg-card p-4">
+              <GoogleTranslateWidget />
             </div>
           </article>
         </div>
