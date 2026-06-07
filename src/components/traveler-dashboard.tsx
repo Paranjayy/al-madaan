@@ -62,7 +62,7 @@ const EMERGENCY_CONTACTS = [
 // Drivers location
 const DRIVERS_BOARD = [
   {
-    name: "Aalim (Toyota Dzire)",
+    name: "Aalim (Maruti Dzire)",
     status: "On Trip",
     location: "Gulmarg",
     nextAvailable: "Tomorrow Morning",
@@ -172,7 +172,7 @@ export function TravelerDashboard() {
                     <CheckCircle className="h-5 w-5" />
                   </span>
                   <div>
-                    <h4 className="text-sm font-bold text-foreground">Toyota Swift Dzire (Sedan)</h4>
+                    <h4 className="text-sm font-bold text-foreground">Maruti Suzuki Swift Dzire (Sedan)</h4>
                     <p className="text-xs text-muted-foreground">Dzire fits your group and luggage perfectly. Best nominal choice!</p>
                   </div>
                 </div>

@@ -46,7 +46,7 @@ const drivers = [
     id: "aalim",
     name: "Aalim",
     role: "Lead Driver & Route Expert",
-    vehicle: "Toyota Dzire",
+    vehicle: "Maruti Suzuki Swift Dzire",
     languages: ["Kashmiri", "Urdu", "Hindi", "Basic English"],
     bio: "Aalim has been guiding tourists across Kashmir's valleys for years. Born and raised in Srinagar, he knows every backroad, scenic viewpoint, and hidden chai dhaba between Gulmarg and Pahalgam. Guests consistently note his patience, warm personality, and genuine pride in showing off the beauty of Kashmir.",
     specialties: ["Gulmarg Snow Drives", "Airport Transfers", "Family Trips", "Photography Stops"],
@@ -58,7 +58,7 @@ const drivers = [
     id: "umair",
     name: "Umair",
     role: "Co-Driver & Local Host",
-    vehicle: "Toyota Dzire / Innova Crysta",
+    vehicle: "Maruti Suzuki Swift Dzire / Innova Crysta",
     languages: ["Kashmiri", "Urdu", "Hindi"],
     bio: "Umair brings local warmth and expert road knowledge to every journey. Known for his friendly conversations and willingness to share local stories, culture, and food recommendations along the way. He's especially popular with couples and solo travellers who appreciate authentic local engagement.",
     specialties: [
@@ -75,7 +75,7 @@ const drivers = [
 
 const taxis = [
   {
-    name: "Toyota Dzire",
+    name: "Maruti Suzuki Swift Dzire",
     type: "Compact Sedan",
     capacity: "Up to 4 guests",
     luggage: "2 large bags + cabin bags",

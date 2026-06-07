@@ -186,7 +186,7 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
               <div class="driver-card">
                 <div>
                   <div style="font-weight: bold; font-size: 14px; color: #111;">Aalim / Umair</div>
-                  <div style="font-size: 11px; color: #666; margin-top: 4px;">Toyota Dzire (4 guests) & Innova (7 guests) available</div>
+                  <div style="font-size: 11px; color: #666; margin-top: 4px;">Maruti Suzuki Dzire (4 guests) & Innova (7 guests) available</div>
                   <div style="font-size: 12px; font-weight: 700; color: #285a43; margin-top: 10px;">WhatsApp booking: +91 70061 09912</div>
                 </div>
               </div>

@@ -16,7 +16,7 @@ const destinations = [
 ];
 
 const tripTypes = ["Airport pickup", "Local sightseeing", "Outstation tour", "Multi-day package"];
-const taxiTypes = ["Toyota Dzire (up to 4 guests)", "Innova Crysta (up to 7 guests)"];
+const taxiTypes = ["Maruti Suzuki Dzire (up to 4 guests)", "Innova Crysta (up to 7 guests)"];
 
 export function TripPlanner() {
   const [name, setName] = useState("");

@@ -295,7 +295,7 @@ export function FareTableInteractive() {
       <div className="flex items-start gap-2.5 bg-panel p-4 rounded-xl border border-border/50 text-xs text-muted-foreground">
         <Info className="h-4 w-4 text-accent-strong shrink-0 mt-0.5" />
         <p className="leading-relaxed">
-          * Standard Union Prices are base estimations for the Toyota Dzire sedan (capacity: 4
+          * Standard Union Prices are base estimations for the Maruti Suzuki Dzire sedan (capacity: 4
           guests). Rates exclude overnight halts, driver night allowance, toll taxes, and local
           sightseeing cabs inside specific restricted areas (e.g. Aru Valley union cabs or Gulmarg
           local pony charges) which have strict localized transport administration rules.

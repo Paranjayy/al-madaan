@@ -51,7 +51,7 @@ const packageDb: Record<string, PackageDetails> = {
     ],
     priceEstimate: "₹2,000 - ₹2,500 total (Includes full day cab, fuel, and driver guide)",
     inclusions: [
-      "Dedicated Toyota Dzire cab",
+      "Dedicated Maruti Suzuki Dzire cab",
       "Fuel and driver allowance",
       "Hotel pick & drop within Srinagar",
     ],
@@ -97,7 +97,7 @@ const packageDb: Record<string, PackageDetails> = {
     ],
     priceEstimate: "₹2,600 - ₹2,800 total (Includes return transport)",
     inclusions: [
-      "Toyota Dzire transport",
+      "Maruti Suzuki Dzire transport",
       "Driver guide assistance",
       "Toll taxes & mountain permits",
     ],
@@ -272,7 +272,7 @@ const packageDb: Record<string, PackageDetails> = {
       "Sunset Shikara ride with flower deck",
       "Phase 1 & 2 Gulmarg Gondola snow dates",
       "Overnight stay at riverside Pahalgam hotel",
-      "Comfortable Dzire taxi with professional polite driver",
+      "Comfortable Maruti Dzire taxi with professional polite driver",
     ],
     itinerary: [
       {
@@ -308,7 +308,7 @@ const packageDb: Record<string, PackageDetails> = {
     ],
     priceEstimate: "₹16,500 - ₹19,000 total (Cab + Shikara ride included)",
     inclusions: [
-      "Dedicated Toyota Dzire for all 6 days",
+      "Dedicated Maruti Suzuki Dzire for all 6 days",
       "Complimentary standard Shikara ride",
       "Driver night allowances, highway tolls, airport parking",
     ],
