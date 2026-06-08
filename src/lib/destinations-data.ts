@@ -250,7 +250,12 @@ export const destinations: Destination[] = [
     price: "₹1,800 – ₹2,200",
     priceMin: 1800,
     priceMax: 2200,
-    highlights: ["Deepest Lake in Kashmir", "Lotus Gardens", "Jharokha Mughal Garden", "Bird Watching"],
+    highlights: [
+      "Deepest Lake in Kashmir",
+      "Lotus Gardens",
+      "Jharokha Mughal Garden",
+      "Bird Watching",
+    ],
     details: "Serene deep-green lake famous for lotuses, Mughal ruins, and peace.",
     longDescription:
       "Manasbal Lake is the deepest lake in the Kashmir Valley. Characterized by crystal-clear waters and surrounding lotus gardens blooming in July and August, it offers a quieter alternative to Dal Lake. The lakeside features the historic Jharokha Bagh (Mughal Garden) overlooking the waters.",
@@ -276,7 +281,12 @@ export const destinations: Destination[] = [
     price: "₹2,800 – ₹3,200",
     priceMin: 2800,
     priceMax: 3200,
-    highlights: ["Jhelum River Source", "Octagonal Mughal Pool", "Mughal Colonnades", "Heritage Gardens"],
+    highlights: [
+      "Jhelum River Source",
+      "Octagonal Mughal Pool",
+      "Mughal Colonnades",
+      "Heritage Gardens",
+    ],
     details: "A historic deep blue octagonal spring basin built by Jahangir.",
     longDescription:
       "Verinag is a historical town situated at the foot of the Pir Panjal range. It is famous for the Verinag Spring, the official source of the River Jhelum. Emperor Jahangir constructed a majestic octagonal stone basin around the deep turquoise spring in 1620, enclosed by arched chambers and manicured Mughal gardens.",
@@ -302,8 +312,14 @@ export const destinations: Destination[] = [
     price: "₹6,500 – ₹7,500",
     priceMin: 6500,
     priceMax: 7500,
-    highlights: ["Habba Khatoon Peak", "Kishenganga River", "Razdan Pass (11,672 ft)", "Dawar Border Village"],
-    details: "Stunning virgin valley located right along the Line of Control, home to the Shina tribe.",
+    highlights: [
+      "Habba Khatoon Peak",
+      "Kishenganga River",
+      "Razdan Pass (11,672 ft)",
+      "Dawar Border Village",
+    ],
+    details:
+      "Stunning virgin valley located right along the Line of Control, home to the Shina tribe.",
     longDescription:
       "Gurez Valley is one of the most remote and beautiful places in Kashmir. Surrounded by snow-capped peaks, it features the majestic pyramid-shaped Habba Khatoon peak. Crossing the high-altitude Razdan Pass to enter Gurez offers sweeping views of the mountains, birch trees, and traditional log-house villages.",
     lat: 34.6361,
@@ -329,7 +345,8 @@ export const destinations: Destination[] = [
     priceMin: 4500,
     priceMax: 5000,
     highlights: ["12,000 ft Peak", "Year-round Snow", "Sinthan Pass", "Kokernag Gardens Route"],
-    details: "High mountain pass connecting Kashmir with Kishtwar, offering snow and panoramic vistas.",
+    details:
+      "High mountain pass connecting Kashmir with Kishtwar, offering snow and panoramic vistas.",
     longDescription:
       "Sinthan Top is a high mountain pass at an altitude of 12,000 feet. It is located on the Anantnag-Kokernag-Kishtwar highway and remains covered in snow for most of the year. The top offers a spectacular 360-degree panoramic view of both the Kashmir valley and the Jammu region.",
     lat: 33.5752,
@@ -358,8 +375,8 @@ export const destinations: Destination[] = [
     details: "A peaceful rural valley filled with wooden houses, apple orchards, and pine groves.",
     longDescription:
       "Lolab Valley is renowned for its pristine natural beauty, rustic village landscapes, and welcoming locals. Named after Maharaja Lolo, the valley is covered in lush pine trees, wild flowers, and extensive orchards of apple, cherry, and walnut. The ancient and mysterious Kalaroos Caves are a top attraction for adventurers.",
-    lat: 34.4500,
-    lng: 74.3200,
+    lat: 34.45,
+    lng: 74.32,
     activities: [
       "Hike to the legendary rock-cut Kalaroos Caves and the 'Satbaran' monument.",
       "Walk through peaceful walnut and apple orchards in Sogam.",
@@ -380,7 +397,12 @@ export const destinations: Destination[] = [
     price: "₹4,800 – ₹5,500",
     priceMin: 4800,
     priceMax: 5500,
-    highlights: ["Chota Bangus Meadows", "Bada Bangus Basin", "Mawri River", "Pine Bordered Grasslands"],
+    highlights: [
+      "Chota Bangus Meadows",
+      "Bada Bangus Basin",
+      "Mawri River",
+      "Pine Bordered Grasslands",
+    ],
     details: "Vast, untouched alpine grasslands bordered by thick pine forests in Kupwara.",
     longDescription:
       "Bangus is a magnificent high-altitude ecological valley in Kupwara district. Spanning thousands of hectares, it consists of Bada Bangus (Big Bangus) and Chota Bangus (Small Bangus) meadows. It is one of the least explored tourist destinations in Kashmir, presenting an absolute dreamscape of pristine streams, wildflowers, and grazing livestock.",

@@ -85,41 +85,48 @@ const SEASONAL_ADVISOR_DATA = [
     season: "Winter (Peak Snow)",
     tempSrinagar: "-2°C to 8°C",
     tempGulmarg: "-10°C to -2°C",
-    clothing: "Heavy woolens, thermals, fleece jackets, down coats, gloves, warm socks, waterproof boots.",
-    roadStatus: "Gulmarg/Pahalgam road open (snow chains required at Tangmarg). Razdan Pass / Zoji La generally closed.",
+    clothing:
+      "Heavy woolens, thermals, fleece jackets, down coats, gloves, warm socks, waterproof boots.",
+    roadStatus:
+      "Gulmarg/Pahalgam road open (snow chains required at Tangmarg). Razdan Pass / Zoji La generally closed.",
     tips: "Gondola tickets must be booked 3-4 weeks in advance online. Expect snow activities at Gulmarg & Sonmarg.",
-    rating: "⭐⭐⭐⭐ (Best for Snow Lovers)"
+    rating: "⭐⭐⭐⭐ (Best for Snow Lovers)",
   },
   {
     months: ["Mar", "Apr", "May"],
     season: "Spring (Tulip & Blossom)",
     tempSrinagar: "8°C to 20°C",
     tempGulmarg: "0°C to 12°C",
-    clothing: "Light to medium woolens, light jacket, cardigans, windcheaters, comfortable walking shoes.",
-    roadStatus: "All main highways and passes (Razdan, Zoji La) open by late April/May. Spring flower trails clear.",
+    clothing:
+      "Light to medium woolens, light jacket, cardigans, windcheaters, comfortable walking shoes.",
+    roadStatus:
+      "All main highways and passes (Razdan, Zoji La) open by late April/May. Spring flower trails clear.",
     tips: "Srinagar Tulip Garden is open from late March to late April. Ideal weather for sightseeing & shikara rides.",
-    rating: "⭐⭐⭐⭐⭐ (Highly Recommended)"
+    rating: "⭐⭐⭐⭐⭐ (Highly Recommended)",
   },
   {
     months: ["Jun", "Jul", "Aug"],
     season: "Summer (Lush Meadows)",
     tempSrinagar: "15°C to 30°C",
     tempGulmarg: "8°C to 20°C",
-    clothing: "Light cottons for daytime, light cardigan or windcheater for evenings in Gulmarg/Sonmarg, umbrella/raincoat.",
+    clothing:
+      "Light cottons for daytime, light cardigan or windcheater for evenings in Gulmarg/Sonmarg, umbrella/raincoat.",
     roadStatus: "All roads and passes (including Zoji La to Ladakh) are fully open and clear.",
     tips: "Great time to visit offbeat places like Gurez Valley, Bangus, and Lolab. Carry rain protection for afternoon showers.",
-    rating: "⭐⭐⭐⭐ (Great Escape)"
+    rating: "⭐⭐⭐⭐ (Great Escape)",
   },
   {
     months: ["Sep", "Oct", "Nov"],
     season: "Autumn (Golden Chinar & Saffron)",
     tempSrinagar: "5°C to 22°C",
     tempGulmarg: "-2°C to 14°C",
-    clothing: "Thermals (for November), woolen sweaters, jackets, shawls, layers for temperature shifts.",
-    roadStatus: "Roads clear in Sep/Oct. First snowfall on mountain peaks starts in Nov, possibly requiring chains.",
+    clothing:
+      "Thermals (for November), woolen sweaters, jackets, shawls, layers for temperature shifts.",
+    roadStatus:
+      "Roads clear in Sep/Oct. First snowfall on mountain peaks starts in Nov, possibly requiring chains.",
     tips: "Pampore Saffron harvest happens in late October/early November. Perfect time for golden Chinar photography in gardens.",
-    rating: "⭐⭐⭐⭐⭐ (Photographer's Dream)"
-  }
+    rating: "⭐⭐⭐⭐⭐ (Photographer's Dream)",
+  },
 ];
 
 export function TravelerDashboard() {
@@ -138,28 +145,25 @@ export function TravelerDashboard() {
   };
 
   const simulateAlertRefresh = () => {
-    toast.promise(
-      new Promise((resolve) => setTimeout(resolve, 1000)),
-      {
-        loading: "Querying road transport department database...",
-        success: () => {
-          // Add minor variation in update time
-          setPasses((prev) =>
-            prev.map((p) => ({
-              ...p,
-              updated: "Just now",
-            }))
-          );
-          return "Road conditions & alerts successfully updated!";
-        },
-        error: "Failed to connect to road database.",
-      }
-    );
+    toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
+      loading: "Querying road transport department database...",
+      success: () => {
+        // Add minor variation in update time
+        setPasses((prev) =>
+          prev.map((p) => ({
+            ...p,
+            updated: "Just now",
+          })),
+        );
+        return "Road conditions & alerts successfully updated!";
+      },
+      error: "Failed to connect to road database.",
+    });
   };
 
-  const currentAdvisor = SEASONAL_ADVISOR_DATA.find((data) =>
-    data.months.includes(activeMonth)
-  ) || SEASONAL_ADVISOR_DATA[1];
+  const currentAdvisor =
+    SEASONAL_ADVISOR_DATA.find((data) => data.months.includes(activeMonth)) ||
+    SEASONAL_ADVISOR_DATA[1];
 
   return (
     <div className="space-y-10">
@@ -171,12 +175,30 @@ export function TravelerDashboard() {
               <CloudSun className="h-6 w-6 animate-pulse" />
             </span>
             <div>
-              <h3 className="text-xl font-bold text-foreground">Kashmir Weather &amp; Packing Advisor</h3>
-              <p className="text-sm text-muted-foreground">Select your travel month to see averages, packing checklists, and road status warnings.</p>
+              <h3 className="text-xl font-bold text-foreground">
+                Kashmir Weather &amp; Packing Advisor
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Select your travel month to see averages, packing checklists, and road status
+                warnings.
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-1.5 self-start md:self-auto bg-panel/85 p-1 rounded-xl border border-border/60 overflow-x-auto max-w-full">
-            {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((m) => (
+            {[
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ].map((m) => (
               <button
                 key={m}
                 type="button"
@@ -198,7 +220,9 @@ export function TravelerDashboard() {
           <div className="rounded-xl border border-border/80 bg-panel/30 p-5 space-y-4">
             <div className="flex items-center gap-2 text-primary">
               <Thermometer className="h-5 w-5" />
-              <span className="text-xs font-bold uppercase tracking-wider">Expected Climate ({currentAdvisor.season})</span>
+              <span className="text-xs font-bold uppercase tracking-wider">
+                Expected Climate ({currentAdvisor.season})
+              </span>
             </div>
             <div className="space-y-2">
               <div className="flex justify-between items-center text-sm border-b border-border/40 pb-2">
@@ -211,7 +235,9 @@ export function TravelerDashboard() {
               </div>
               <div className="flex justify-between items-center text-sm pt-1">
                 <span className="text-muted-foreground">Driver's Rating:</span>
-                <span className="text-xs font-bold text-amber-600 dark:text-amber-400">{currentAdvisor.rating}</span>
+                <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                  {currentAdvisor.rating}
+                </span>
               </div>
             </div>
           </div>
@@ -220,7 +246,9 @@ export function TravelerDashboard() {
           <div className="rounded-xl border border-border/80 bg-panel/30 p-5 space-y-4">
             <div className="flex items-center gap-2 text-primary">
               <Luggage className="h-5 w-5" />
-              <span className="text-xs font-bold uppercase tracking-wider">Required Packing List</span>
+              <span className="text-xs font-bold uppercase tracking-wider">
+                Required Packing List
+              </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
               {currentAdvisor.clothing}
@@ -234,7 +262,9 @@ export function TravelerDashboard() {
           <div className="rounded-xl border border-border/80 bg-panel/30 p-5 space-y-4">
             <div className="flex items-center gap-2 text-primary">
               <Compass className="h-5 w-5" />
-              <span className="text-xs font-bold uppercase tracking-wider">Highway &amp; Pass Advisory</span>
+              <span className="text-xs font-bold uppercase tracking-wider">
+                Highway &amp; Pass Advisory
+              </span>
             </div>
             <div className="space-y-3 text-xs leading-relaxed text-muted-foreground">
               <p>
@@ -258,8 +288,12 @@ export function TravelerDashboard() {
                 <Car className="h-5 w-5" />
               </span>
               <div>
-                <h3 className="text-lg font-bold text-foreground">Luggage &amp; Space Matchmaker</h3>
-                <p className="text-xs text-muted-foreground">Select your group setup to find the perfect cab.</p>
+                <h3 className="text-lg font-bold text-foreground">
+                  Luggage &amp; Space Matchmaker
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Select your group setup to find the perfect cab.
+                </p>
               </div>
             </div>
 
@@ -299,16 +333,22 @@ export function TravelerDashboard() {
 
             {/* Results visualization */}
             <div className="rounded-xl border border-border/80 bg-panel/30 p-4 space-y-3 mt-4">
-              <span className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase">Recommended Cab Option:</span>
-              
+              <span className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase">
+                Recommended Cab Option:
+              </span>
+
               {fitsDzire ? (
                 <div className="flex items-center gap-3">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
                     <CheckCircle className="h-5 w-5" />
                   </span>
                   <div>
-                    <h4 className="text-sm font-bold text-foreground">Maruti Suzuki Swift Dzire (Sedan)</h4>
-                    <p className="text-xs text-muted-foreground">Dzire fits your group and luggage perfectly. Best nominal choice!</p>
+                    <h4 className="text-sm font-bold text-foreground">
+                      Maruti Suzuki Swift Dzire (Sedan)
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Dzire fits your group and luggage perfectly. Best nominal choice!
+                    </p>
                   </div>
                 </div>
               ) : fitsInnova ? (
@@ -317,8 +357,12 @@ export function TravelerDashboard() {
                     <CheckCircle className="h-5 w-5" />
                   </span>
                   <div>
-                    <h4 className="text-sm font-bold text-foreground">Toyota Innova Crysta (SUV)</h4>
-                    <p className="text-xs text-muted-foreground">Required due to passenger or luggage volume. Standard SUV comfort.</p>
+                    <h4 className="text-sm font-bold text-foreground">
+                      Toyota Innova Crysta (SUV)
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Required due to passenger or luggage volume. Standard SUV comfort.
+                    </p>
                   </div>
                 </div>
               ) : (
@@ -327,8 +371,12 @@ export function TravelerDashboard() {
                     <AlertTriangle className="h-5 w-5 animate-pulse" />
                   </span>
                   <div>
-                    <h4 className="text-sm font-bold text-red-600 dark:text-red-400">Tempo Traveller / Double Cab Required</h4>
-                    <p className="text-xs text-muted-foreground">Exceeds standard SUV limits. Please query a customized heavy coach.</p>
+                    <h4 className="text-sm font-bold text-red-600 dark:text-red-400">
+                      Tempo Traveller / Double Cab Required
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      Exceeds standard SUV limits. Please query a customized heavy coach.
+                    </p>
                   </div>
                 </div>
               )}
@@ -351,8 +399,12 @@ export function TravelerDashboard() {
                   <Compass className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Live Mountain Pass Conditions</h3>
-                  <p className="text-xs text-muted-foreground">Real-time status updates for critical sightseeing passes.</p>
+                  <h3 className="text-lg font-bold text-foreground">
+                    Live Mountain Pass Conditions
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    Real-time status updates for critical sightseeing passes.
+                  </p>
                 </div>
               </div>
               <button
@@ -366,13 +418,20 @@ export function TravelerDashboard() {
 
             <div className="space-y-3 pt-2">
               {passes.map((p) => (
-                <div key={p.name} className="flex justify-between items-start gap-4 border-b border-border/40 pb-2.5 last:border-0 last:pb-0">
+                <div
+                  key={p.name}
+                  className="flex justify-between items-start gap-4 border-b border-border/40 pb-2.5 last:border-0 last:pb-0"
+                >
                   <div className="min-w-0">
                     <p className="text-xs font-bold text-foreground flex items-center gap-1.5">
                       {p.name}
-                      <span className="text-[10px] text-muted-foreground font-normal">({p.altitude})</span>
+                      <span className="text-[10px] text-muted-foreground font-normal">
+                        ({p.altitude})
+                      </span>
                     </p>
-                    <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{p.note}</p>
+                    <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">
+                      {p.note}
+                    </p>
                   </div>
                   <div className="text-right shrink-0">
                     <span
@@ -380,8 +439,8 @@ export function TravelerDashboard() {
                         p.color === "emerald"
                           ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
                           : p.color === "amber"
-                          ? "bg-amber-500/10 text-amber-700 dark:text-amber-300"
-                          : "bg-red-500/10 text-red-700 dark:text-red-300"
+                            ? "bg-amber-500/10 text-amber-700 dark:text-amber-300"
+                            : "bg-red-500/10 text-red-700 dark:text-red-300"
                       }`}
                     >
                       {p.status}
@@ -394,7 +453,8 @@ export function TravelerDashboard() {
           </div>
 
           <div className="pt-3 border-t border-border/50 flex items-center gap-1 text-[11px] text-muted-foreground mt-3">
-            <Info className="h-3.5 w-3.5 text-primary shrink-0" /> Safety tip: Always check pass status prior to mountain departures.
+            <Info className="h-3.5 w-3.5 text-primary shrink-0" /> Safety tip: Always check pass
+            status prior to mountain departures.
           </div>
         </div>
 
@@ -407,17 +467,23 @@ export function TravelerDashboard() {
               </span>
               <div>
                 <h3 className="text-lg font-bold text-foreground">Driver Live Location Board</h3>
-                <p className="text-xs text-muted-foreground">See where your driver companions are right now.</p>
+                <p className="text-xs text-muted-foreground">
+                  See where your driver companions are right now.
+                </p>
               </div>
             </div>
 
             <div className="space-y-4 pt-2">
               {DRIVERS_BOARD.map((d) => (
-                <div key={d.name} className="flex justify-between items-center gap-4 rounded-xl border border-border/60 bg-panel/30 p-3">
+                <div
+                  key={d.name}
+                  className="flex justify-between items-center gap-4 rounded-xl border border-border/60 bg-panel/30 p-3"
+                >
                   <div>
                     <h4 className="text-sm font-bold text-foreground">{d.name}</h4>
                     <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span> Currently in: <strong className="text-foreground">{d.location}</strong>
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>{" "}
+                      Currently in: <strong className="text-foreground">{d.location}</strong>
                     </p>
                   </div>
                   <div className="text-right shrink-0">
@@ -430,7 +496,9 @@ export function TravelerDashboard() {
                     >
                       {d.status}
                     </span>
-                    <p className="text-[10px] text-muted-foreground mt-1">Available: {d.nextAvailable}</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">
+                      Available: {d.nextAvailable}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -438,7 +506,8 @@ export function TravelerDashboard() {
           </div>
 
           <div className="pt-3 border-t border-border/50 flex items-center gap-1 text-[11px] text-muted-foreground mt-3">
-            <CloudSun className="h-3.5 w-3.5 text-primary shrink-0" /> Drive with localized drivers who handle snow/rain weather easily.
+            <CloudSun className="h-3.5 w-3.5 text-primary shrink-0" /> Drive with localized drivers
+            who handle snow/rain weather easily.
           </div>
         </div>
 
@@ -451,7 +520,9 @@ export function TravelerDashboard() {
               </span>
               <div>
                 <h3 className="text-lg font-bold text-foreground">Traveler Emergency Directory</h3>
-                <p className="text-xs text-muted-foreground">Tap and copy critical tourism helpline numbers in one click.</p>
+                <p className="text-xs text-muted-foreground">
+                  Tap and copy critical tourism helpline numbers in one click.
+                </p>
               </div>
             </div>
 
@@ -476,7 +547,8 @@ export function TravelerDashboard() {
           </div>
 
           <div className="pt-3 border-t border-border/50 flex items-center gap-1 text-[11px] text-muted-foreground mt-3">
-            <Info className="h-3.5 w-3.5 text-primary shrink-0" /> Dial 100 or +91 194 250227 for immediate tourism police support.
+            <Info className="h-3.5 w-3.5 text-primary shrink-0" /> Dial 100 or +91 194 250227 for
+            immediate tourism police support.
           </div>
         </div>
 
@@ -488,8 +560,13 @@ export function TravelerDashboard() {
                 <Info className="h-5 w-5" />
               </span>
               <div>
-                <h3 className="text-lg font-bold text-foreground">Local Sightseeing Cabs &amp; Union Rules</h3>
-                <p className="text-xs text-muted-foreground">Understanding Jammu &amp; Kashmir union cab regulations to plan your budget correctly.</p>
+                <h3 className="text-lg font-bold text-foreground">
+                  Local Sightseeing Cabs &amp; Union Rules
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Understanding Jammu &amp; Kashmir union cab regulations to plan your budget
+                  correctly.
+                </p>
               </div>
             </div>
 
@@ -537,7 +614,8 @@ export function TravelerDashboard() {
 
           <div className="pt-3 border-t border-border/50 flex items-center justify-between text-[11px] text-muted-foreground mt-4">
             <span className="flex items-center gap-1">
-              <Sparkles className="h-3.5 w-3.5 text-primary shrink-0" /> Local Tip: We help you book/coordinate local union cabs without hassle.
+              <Sparkles className="h-3.5 w-3.5 text-primary shrink-0" /> Local Tip: We help you
+              book/coordinate local union cabs without hassle.
             </span>
           </div>
         </div>

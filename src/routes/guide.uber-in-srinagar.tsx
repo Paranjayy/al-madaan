@@ -86,8 +86,8 @@ function UberGuidePage() {
           </h1>
           <p className="text-lg leading-8 text-muted-foreground">
             Short answer: <strong className="text-foreground">no</strong>. Neither Uber nor Ola
-            operate in Srinagar or anywhere in the Kashmir Valley. Here's what tourists actually
-            use instead — and how to book without getting overcharged.
+            operate in Srinagar or anywhere in the Kashmir Valley. Here's what tourists actually use
+            instead — and how to book without getting overcharged.
           </p>
         </header>
 
@@ -113,11 +113,11 @@ function UberGuidePage() {
         <section className="mt-10 space-y-4">
           <h2 className="text-2xl font-semibold text-foreground">Why isn't Uber in Kashmir?</h2>
           <p className="text-base leading-7 text-muted-foreground">
-            Kashmir's taxi market is run by local unions that hold designated stands at the
-            airport, hotels, and tourist points. Ride-hailing apps have not been able to enter
-            because fares, routes and stand allocations are union-controlled. The good news: most
-            drivers are locals who know the valley intimately, speak basic English/Hindi, and
-            charge nominal day rates rather than per-kilometre app surge.
+            Kashmir's taxi market is run by local unions that hold designated stands at the airport,
+            hotels, and tourist points. Ride-hailing apps have not been able to enter because fares,
+            routes and stand allocations are union-controlled. The good news: most drivers are
+            locals who know the valley intimately, speak basic English/Hindi, and charge nominal day
+            rates rather than per-kilometre app surge.
           </p>
         </section>
 
@@ -157,9 +157,9 @@ function UberGuidePage() {
             Book a trusted local driver in Srinagar
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Al Madaan Ventures runs two well-maintained cabs in Srinagar with friendly local
-            drivers who speak English, Hindi and Urdu. Nominal pricing, airport pickup, and full
-            sightseeing support across Kashmir.
+            Al Madaan Ventures runs two well-maintained cabs in Srinagar with friendly local drivers
+            who speak English, Hindi and Urdu. Nominal pricing, airport pickup, and full sightseeing
+            support across Kashmir.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <a href={whatsappUrl} target="_blank" rel="noreferrer">

@@ -102,7 +102,7 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
         <td style="padding: 12px; font-size: 13px; color: #555;">${dest.highlights.slice(0, 3).join(", ")}</td>
         <td style="padding: 12px; font-size: 14px; font-weight: bold; color: #1e3a1e; text-align: right;">${dest.price}</td>
       </tr>
-    `
+    `,
       )
       .join("");
 
@@ -195,7 +195,7 @@ export function ItineraryBuilder({ allDestinations }: ItineraryBuilderProps) {
 
           <div class="footer">
             <p>Thank you for choosing Al Madaan Ventures. We ride for the love of Kashmir!</p>
-            <p style="margin-top: 5px; color: #999;">Itinerary created on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}. Estimates subject to local traffic & seasonal union cab regulations.</p>
+            <p style="margin-top: 5px; color: #999;">Itinerary created on ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Estimates subject to local traffic & seasonal union cab regulations.</p>
           </div>
         </body>
       </html>

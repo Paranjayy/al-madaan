@@ -378,11 +378,7 @@ const packageDb: Record<string, PackageDetails> = {
       "Outstation driver halts, tolls, permit charges",
       "Srinagar airport pickup & drop",
     ],
-    exclusions: [
-      "Hotels / Guesthouses",
-      "Meals and entry fees",
-      "Trekking / pony riding guides",
-    ],
+    exclusions: ["Hotels / Guesthouses", "Meals and entry fees", "Trekking / pony riding guides"],
     tips: [
       "This route involves longer daily drives — carry motion-sickness medicines if needed.",
       "Bring warm thermal layers as Sinthan Top is windy and freezing year-round.",

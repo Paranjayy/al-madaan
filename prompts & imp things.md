@@ -322,6 +322,6 @@ Read our documentation to learn more about this error.
 - still same vercel issue ig
 
 - continue ig dawg also still vercel broken & u can add more itineary or destinations too on pressing destinations some expanded comprehensive things ig
-- continue iterating more robust things ig dawg nad i dont see maps and destinations in it where is it 
+- continue iterating more robust things ig dawg nad i dont see maps and destinations in it where is it
 
 # prompt 8

@@ -238,7 +238,7 @@ function DestinationDetailPage() {
         });
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: '&copy; OpenStreetMap contributors',
+          attribution: "&copy; OpenStreetMap contributors",
         }).addTo(map);
 
         L.marker([dest.lat, dest.lng])
@@ -256,12 +256,18 @@ function DestinationDetailPage() {
             .addTo(map)
             .bindPopup("Srinagar (Base Hub)");
 
-          L.polyline([[srinagarLat, srinagarLng], [dest.lat, dest.lng]], {
-            color: "#0f3d30",
-            weight: 3,
-            dashArray: "6, 6",
-            opacity: 0.6,
-          }).addTo(map);
+          L.polyline(
+            [
+              [srinagarLat, srinagarLng],
+              [dest.lat, dest.lng],
+            ],
+            {
+              color: "#0f3d30",
+              weight: 3,
+              dashArray: "6, 6",
+              opacity: 0.6,
+            },
+          ).addTo(map);
         }
 
         mapInstance.current = map;
@@ -332,10 +338,15 @@ function DestinationDetailPage() {
             {/* Sub-places sightseeing guide */}
             {subPlaces.length > 0 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-foreground">Local Sightseeing Points &amp; Sub-Places</h2>
+                <h2 className="text-2xl font-bold text-foreground">
+                  Local Sightseeing Points &amp; Sub-Places
+                </h2>
                 <div className="grid gap-5">
                   {subPlaces.map((sp) => (
-                    <article key={sp.name} className="surface-card p-5 space-y-3 bg-panel/30 hover:shadow-soft transition duration-200">
+                    <article
+                      key={sp.name}
+                      className="surface-card p-5 space-y-3 bg-panel/30 hover:shadow-soft transition duration-200"
+                    >
                       <div className="flex items-center gap-2">
                         <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
                         <h3 className="text-base font-bold text-foreground">{sp.name}</h3>
@@ -366,16 +377,20 @@ function DestinationDetailPage() {
                   />
                 ) : (
                   <div className="w-full h-[320px] bg-panel rounded-xl flex items-center justify-center border border-border/60">
-                    <span className="text-sm text-muted-foreground">Loading Destination Map...</span>
+                    <span className="text-sm text-muted-foreground">
+                      Loading Destination Map...
+                    </span>
                   </div>
                 )}
                 <div className="flex gap-4 justify-center mt-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span> {dest.name} Point
+                    <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>{" "}
+                    {dest.name} Point
                   </span>
                   {dest.slug !== "srinagar" && (
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-gray-400 inline-block"></span> Srinagar Base
+                      <span className="w-2.5 h-2.5 rounded-full bg-gray-400 inline-block"></span>{" "}
+                      Srinagar Base
                     </span>
                   )}
                 </div>

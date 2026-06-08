@@ -5,12 +5,7 @@ import { destinations } from "@/lib/destinations-data";
 
 const BASE_URL = "https://al-madaan.lovable.app";
 
-const packageSlugs = [
-  "srinagar-express",
-  "gulmarg-snow-day",
-  "pahalgam-valley",
-  "classic-4n-5d",
-];
+const packageSlugs = ["srinagar-express", "gulmarg-snow-day", "pahalgam-valley", "classic-4n-5d"];
 
 interface SitemapEntry {
   path: string;

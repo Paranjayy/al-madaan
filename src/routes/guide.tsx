@@ -444,7 +444,8 @@ function GuidePage() {
             Traveler &amp; Driver Live Hub
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl">
-            Live mountain pass reports, luggage capacity calculator, driver board, and emergency helplines.
+            Live mountain pass reports, luggage capacity calculator, driver board, and emergency
+            helplines.
           </p>
         </div>
         <TravelerDashboard />

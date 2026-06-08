@@ -35,7 +35,7 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
             <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3 shrink-0">
               <div className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-accent-strong text-accent-strong-foreground shadow-soft overflow-hidden">
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo.png?v=2"
                   alt="Al Madaan Ventures Logo"
                   className="h-full w-full object-cover"
                   onError={(e) => {
@@ -116,8 +116,16 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
 
             <div className="flex items-center gap-1.5 sm:gap-2">
               <ThemeToggle />
-              <a href="tel:0917006109912" aria-label="Call Al Madaan Ventures" className="inline-flex">
-                <Button variant="pill" size="sm" className="h-9 w-9 sm:w-auto p-0 sm:px-4 shrink-0 flex items-center justify-center">
+              <a
+                href="tel:0917006109912"
+                aria-label="Call Al Madaan Ventures"
+                className="inline-flex"
+              >
+                <Button
+                  variant="pill"
+                  size="sm"
+                  className="h-9 w-9 sm:w-auto p-0 sm:px-4 shrink-0 flex items-center justify-center"
+                >
                   <Phone className="h-4 w-4" />
                   <span className="hidden sm:inline ml-2 text-xs font-medium">Call</span>
                 </Button>
@@ -129,7 +137,11 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                 aria-label="Chat on WhatsApp"
                 className="inline-flex"
               >
-                <Button variant="hero" size="sm" className="h-9 w-9 sm:w-auto p-0 sm:px-4 shrink-0 flex items-center justify-center">
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="h-9 w-9 sm:w-auto p-0 sm:px-4 shrink-0 flex items-center justify-center"
+                >
                   <MessageCircle className="h-4 w-4" />
                   <span className="hidden sm:inline ml-2 text-xs font-medium">WhatsApp</span>
                 </Button>
@@ -231,7 +243,9 @@ export function SiteLayout({ children, language = "en" }: SiteLayoutProps) {
                   </a>
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs text-muted-foreground">2 taxis • local & outstation</span>
+                  <span className="text-xs text-muted-foreground">
+                    2 taxis • local & outstation
+                  </span>
                   <span className="inline-flex items-center rounded-full border border-border/70 bg-panel px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                     EN • HI • UR support
                   </span>
