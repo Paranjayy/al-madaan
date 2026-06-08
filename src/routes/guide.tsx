@@ -12,6 +12,7 @@ import {
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { TravelerDashboard } from "@/components/traveler-dashboard";
+import { SouvenirGuide } from "@/components/souvenir-guide";
 
 export const Route = createFileRoute("/guide")({
   head: () => ({
@@ -447,6 +448,11 @@ function GuidePage() {
           </p>
         </div>
         <TravelerDashboard />
+      </section>
+
+      {/* Souvenirs & Market Safety Guide */}
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <SouvenirGuide />
       </section>
 
       {/* Interactive Checklist Widget */}
