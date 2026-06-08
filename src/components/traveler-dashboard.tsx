@@ -11,6 +11,8 @@ import {
   MapPin,
   Luggage,
   CloudSun,
+  Thermometer,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -77,10 +79,54 @@ const DRIVERS_BOARD = [
   },
 ];
 
+const SEASONAL_ADVISOR_DATA = [
+  {
+    months: ["Dec", "Jan", "Feb"],
+    season: "Winter (Peak Snow)",
+    tempSrinagar: "-2°C to 8°C",
+    tempGulmarg: "-10°C to -2°C",
+    clothing: "Heavy woolens, thermals, fleece jackets, down coats, gloves, warm socks, waterproof boots.",
+    roadStatus: "Gulmarg/Pahalgam road open (snow chains required at Tangmarg). Razdan Pass / Zoji La generally closed.",
+    tips: "Gondola tickets must be booked 3-4 weeks in advance online. Expect snow activities at Gulmarg & Sonmarg.",
+    rating: "⭐⭐⭐⭐ (Best for Snow Lovers)"
+  },
+  {
+    months: ["Mar", "Apr", "May"],
+    season: "Spring (Tulip & Blossom)",
+    tempSrinagar: "8°C to 20°C",
+    tempGulmarg: "0°C to 12°C",
+    clothing: "Light to medium woolens, light jacket, cardigans, windcheaters, comfortable walking shoes.",
+    roadStatus: "All main highways and passes (Razdan, Zoji La) open by late April/May. Spring flower trails clear.",
+    tips: "Srinagar Tulip Garden is open from late March to late April. Ideal weather for sightseeing & shikara rides.",
+    rating: "⭐⭐⭐⭐⭐ (Highly Recommended)"
+  },
+  {
+    months: ["Jun", "Jul", "Aug"],
+    season: "Summer (Lush Meadows)",
+    tempSrinagar: "15°C to 30°C",
+    tempGulmarg: "8°C to 20°C",
+    clothing: "Light cottons for daytime, light cardigan or windcheater for evenings in Gulmarg/Sonmarg, umbrella/raincoat.",
+    roadStatus: "All roads and passes (including Zoji La to Ladakh) are fully open and clear.",
+    tips: "Great time to visit offbeat places like Gurez Valley, Bangus, and Lolab. Carry rain protection for afternoon showers.",
+    rating: "⭐⭐⭐⭐ (Great Escape)"
+  },
+  {
+    months: ["Sep", "Oct", "Nov"],
+    season: "Autumn (Golden Chinar & Saffron)",
+    tempSrinagar: "5°C to 22°C",
+    tempGulmarg: "-2°C to 14°C",
+    clothing: "Thermals (for November), woolen sweaters, jackets, shawls, layers for temperature shifts.",
+    roadStatus: "Roads clear in Sep/Oct. First snowfall on mountain peaks starts in Nov, possibly requiring chains.",
+    tips: "Pampore Saffron harvest happens in late October/early November. Perfect time for golden Chinar photography in gardens.",
+    rating: "⭐⭐⭐⭐⭐ (Photographer's Dream)"
+  }
+];
+
 export function TravelerDashboard() {
   const [passengers, setPassengers] = useState(3);
   const [bags, setBags] = useState(2);
   const [passes, setPasses] = useState(INITIAL_PASSES);
+  const [activeMonth, setActiveMonth] = useState("Jun");
 
   // Luggage logic
   const fitsDzire = passengers <= 4 && bags <= 3;
@@ -111,8 +157,97 @@ export function TravelerDashboard() {
     );
   };
 
+  const currentAdvisor = SEASONAL_ADVISOR_DATA.find((data) =>
+    data.months.includes(activeMonth)
+  ) || SEASONAL_ADVISOR_DATA[1];
+
   return (
     <div className="space-y-10">
+      {/* Dynamic Climate & Packing Advisor */}
+      <div className="surface-card p-6 md:p-8 space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <CloudSun className="h-6 w-6 animate-pulse" />
+            </span>
+            <div>
+              <h3 className="text-xl font-bold text-foreground">Kashmir Weather &amp; Packing Advisor</h3>
+              <p className="text-sm text-muted-foreground">Select your travel month to see averages, packing checklists, and road status warnings.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-1.5 self-start md:self-auto bg-panel/85 p-1 rounded-xl border border-border/60 overflow-x-auto max-w-full">
+            {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((m) => (
+              <button
+                key={m}
+                type="button"
+                onClick={() => setActiveMonth(m)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 cursor-pointer ${
+                  activeMonth === m
+                    ? "bg-primary text-primary-foreground shadow"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {m}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3 pt-2">
+          {/* Temperature & Rating */}
+          <div className="rounded-xl border border-border/80 bg-panel/30 p-5 space-y-4">
+            <div className="flex items-center gap-2 text-primary">
+              <Thermometer className="h-5 w-5" />
+              <span className="text-xs font-bold uppercase tracking-wider">Expected Climate ({currentAdvisor.season})</span>
+            </div>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-sm border-b border-border/40 pb-2">
+                <span className="text-muted-foreground">Srinagar Base:</span>
+                <strong className="text-foreground">{currentAdvisor.tempSrinagar}</strong>
+              </div>
+              <div className="flex justify-between items-center text-sm border-b border-border/40 pb-2">
+                <span className="text-muted-foreground">Gulmarg/Pahalgam:</span>
+                <strong className="text-foreground">{currentAdvisor.tempGulmarg}</strong>
+              </div>
+              <div className="flex justify-between items-center text-sm pt-1">
+                <span className="text-muted-foreground">Driver's Rating:</span>
+                <span className="text-xs font-bold text-amber-600 dark:text-amber-400">{currentAdvisor.rating}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Packing Checklist */}
+          <div className="rounded-xl border border-border/80 bg-panel/30 p-5 space-y-4">
+            <div className="flex items-center gap-2 text-primary">
+              <Luggage className="h-5 w-5" />
+              <span className="text-xs font-bold uppercase tracking-wider">Required Packing List</span>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {currentAdvisor.clothing}
+            </p>
+            <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/5 px-2 py-1 rounded">
+              <Sparkles className="h-3 w-3" /> Tip: Dress in layers as temperatures change rapidly.
+            </div>
+          </div>
+
+          {/* Road status & quirks */}
+          <div className="rounded-xl border border-border/80 bg-panel/30 p-5 space-y-4">
+            <div className="flex items-center gap-2 text-primary">
+              <Compass className="h-5 w-5" />
+              <span className="text-xs font-bold uppercase tracking-wider">Highway &amp; Pass Advisory</span>
+            </div>
+            <div className="space-y-3 text-xs leading-relaxed text-muted-foreground">
+              <p>
+                <strong className="text-foreground">Passes:</strong> {currentAdvisor.roadStatus}
+              </p>
+              <p>
+                <strong className="text-foreground">Tips:</strong> {currentAdvisor.tips}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 2x2 Feature Dashboard Grid */}
       <div className="grid gap-6 md:grid-cols-2">
         {/* Card 1: Interactive Luggage & Space Calculator */}
