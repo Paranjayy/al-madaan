@@ -479,6 +479,68 @@ export function TravelerDashboard() {
             <Info className="h-3.5 w-3.5 text-primary shrink-0" /> Dial 100 or +91 194 250227 for immediate tourism police support.
           </div>
         </div>
+
+        {/* Card 5: Sightseeing Union Cabs & Regulations Guide */}
+        <div className="surface-card p-6 flex flex-col justify-between md:col-span-2">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Info className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="text-lg font-bold text-foreground">Local Sightseeing Cabs &amp; Union Rules</h3>
+                <p className="text-xs text-muted-foreground">Understanding Jammu &amp; Kashmir union cab regulations to plan your budget correctly.</p>
+              </div>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3 pt-2">
+              <div className="rounded-xl border border-border/70 bg-panel/30 p-4 space-y-2">
+                <h4 className="text-xs font-bold text-foreground flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                  Where Srinagar Cabs Go:
+                </h4>
+                <ul className="text-xs text-muted-foreground space-y-1 pl-3 list-disc">
+                  <li>Airport pick &amp; drop transfers</li>
+                  <li>Srinagar local (Mughal gardens, etc.)</li>
+                  <li>Hotel drops in Gulmarg, Sonmarg &amp; Pahalgam</li>
+                  <li>Outstations like Gurez, Yusmarg &amp; Doodhpathri</li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-border/70 bg-panel/30 p-4 space-y-2">
+                <h4 className="text-xs font-bold text-foreground flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
+                  Where Local Union Cabs are Required:
+                </h4>
+                <ul className="text-xs text-muted-foreground space-y-1 pl-3 list-disc">
+                  <li>Pahalgam inner valleys (Aru, Betaab, Chandanwari)</li>
+                  <li>Sonmarg Zero Point, Fish Point &amp; glaciers</li>
+                  <li>Gulmarg inner spots (though Gondola is walkable)</li>
+                  <li>High pass excursions inside outstations</li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-border/70 bg-panel/30 p-4 space-y-2">
+                <h4 className="text-xs font-bold text-foreground flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-primary inline-block"></span>
+                  Estimated Union Fares:
+                </h4>
+                <ul className="text-xs text-muted-foreground space-y-1 pl-3 list-disc">
+                  <li>Pahalgam 3-Valleys (Eco/Van): ~₹2,200 - ₹2,800</li>
+                  <li>Sonmarg Zero Point (4x4 Gypsy): ~₹3,500 - ₹4,500</li>
+                  <li>Gulmarg Tangmarg-Gulmarg Snow chains: ~₹1,500</li>
+                  <li>Horse riding rates: Varies (negotiable)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-border/50 flex items-center justify-between text-[11px] text-muted-foreground mt-4">
+            <span className="flex items-center gap-1">
+              <Sparkles className="h-3.5 w-3.5 text-primary shrink-0" /> Local Tip: We help you book/coordinate local union cabs without hassle.
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
