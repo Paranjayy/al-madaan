@@ -3,6 +3,7 @@ import { Clock, MapPin, Users } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+import { PackageCustomizer } from "@/components/package-customizer";
 
 const packages = [
   {
@@ -168,7 +169,11 @@ function PackagesPage() {
           })}
         </div>
 
-        <div className="mt-12 rounded-[var(--radius-2xl)] border border-border/70 bg-panel p-6 text-sm text-muted-foreground">
+        <div className="mt-16">
+          <PackageCustomizer />
+        </div>
+
+        <div className="mt-16 rounded-[var(--radius-2xl)] border border-border/70 bg-panel p-6 text-sm text-muted-foreground">
           Want a custom plan instead?{" "}
           <Link to="/contact" className="font-semibold text-primary">
             Use the trip planner →
